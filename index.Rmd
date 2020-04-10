@@ -9,9 +9,35 @@ output: html_document
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-## R
+## El lenguaje de programación R
 
-[R](https://www.r-project.org/) es un lenguaje de programación especializado en análisis estadístico. 
+[R](https://www.r-project.org/) es un lenguaje de programación enfocado en análisis estadístico. Es ampliamente utilizado en áreas como ciencia de datos, análisis de datos y graficación estadística, entre otras. Fue creado por Ross Ihaka y Robert Gentleman en la Universidad de Auckland, Nueva Zelanda, en 1993. R es un proyecto de software libre que se comparte mediante una licencia [GNU General Public Licence (GNU GPL)](https://www.gnu.org/licenses/old-licenses/gpl-2.0.html).
+
+Para programar en R, puede utilizarse una interfaz de línea de comandos y también ambientes de desarrollo integrados (IDE, _integrated development environment_) como [Jupyter](https://jupyter.org/) o [RStudio](https://rstudio.com/).
+
+
+## Tipos de datos
+R es un [lenguaje de programación orientado a objetos](https://en.wikipedia.org/wiki/Object-oriented_programming). un objeto es una entidad que tiene asociadas propiedades y métodos para manipular esas propiedades.
+
+
+### Básicos
+
+#### Números
+
+#### Cadenas de caracteres
+
+#### Booleanos
+
+### Otros
+
+#### Vectores
+
+#### Data Frames
+
+
+
+
+
 
 ```{r cars}
 summary(cars)
