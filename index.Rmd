@@ -13,7 +13,6 @@ knitr::opts_chunk$set(echo = TRUE)
 
 [R](https://www.r-project.org/) es un lenguaje de programación enfocado en análisis estadístico. Es ampliamente utilizado en áreas como aprendizaje automático (_machine learning_), ciencia de datos, investigación biomédica, bioinformática y finanzas, entre otras. Fue creado por Ross Ihaka y Robert Gentleman en la Universidad de Auckland, Nueva Zelanda, en 1993.
 
-
 Las siguientes son otras características importantes del lenguaje R:
 
 * Es [interpretado](https://en.wikipedia.org/wiki/Interpreter_(computing)): las instrucciones se traducen una por una a [lenguaje máquina](https://en.wikipedia.org/wiki/Machine_code), a diferencia de los [lenguajes compilados](https://en.wikipedia.org/wiki/Compiler), que traducen de manera conjunta las instrucciones de una unidad completa (ej. un programa o una biblioteca). Los lenguajes interpretados tienden a ser más lentos que los compilados, pero también son más flexibles como entornos de desarrollo y depuración.
@@ -44,11 +43,11 @@ Tanto ```x```, ```nombre``` como ```dias``` son variables. Una variable es una e
 El tipo de una variable puede consultarse con la función ```typeof```. Por ejemplo:
 
 ```{r}
-typeof(x)
+print(typeof(x))
 ```
 
 ```{r}
-typeof(nombre)
+print(typeof(nombre))
 ```
 
 A continuación, se describen en detalle algunos de los tipos de datos utilizados en el lenguaje R.
@@ -61,7 +60,7 @@ x <- 10
 y <- 20
 
 # Suma
-x + y
+print(x + y)
 ```
 
 ```{r}
@@ -69,7 +68,7 @@ x <- 0.5
 y <- 3.14
 
 # Multiplicación
-x * y
+print(x * y)
 ```
 
 ### Carácteres
@@ -80,7 +79,7 @@ nombre <- "María"
 apellido <- "Pérez"
 
 # Concatenación de hileras de carácteres
-paste(nombre, apellido)
+print(paste(nombre, apellido))
 ```
 
 ### Vectores
@@ -88,12 +87,12 @@ Un vector es una estructura de una dimensión que combina objetos del mismo tipo
 
 ```{r}
 a = c(1, 2, 3, 4, 5)
-a
+print(a)
 ```
 
 ```{r}
 b = c("Álvaro", "Ana", "Berta", "Bernardo")
-b
+print(b)
 ```
 
 ### Data Frames
@@ -103,29 +102,53 @@ Los _data frames_ son estructuras bidimensionales compuestas por varios vectores
 pais = c("Panamá", "Costa Rica", "Nicaragua", "El Salvador", "Honduras", "Guatemala", "Belice")
 poblacion = c(4.1, 5.0, 6.2, 6.4, 9.2, 16.9, 0.3)
 d = data.frame(x = pais, y = poblacion)
-d
+print(d)
 ```
 
 La función ```summary()``` proporciona un resumen de los contenidos de un data frame:
 ```{r}
-summary(d)
+print(summary(d))
 ```
 
 Para efectos de pruebas y ejemplos, el interpretador de R incorpora varios conjuntos de datos en la forma de data frames que pueden listarse con la función ```data()```. Para consultar un conjunto en particular, puede utilizarse el operador  ```? ```:
 
 ```{r}
-?cars
+print(?cars)
 ```
 
-#### La función read.csv()
+## Importación de datos
+Por lo general, los datos con los que se trabaja en R provienen de fuentes externas, como archivos de texto o servicios web. A continuación, se estudiarán algunas de las funciones que permiten importar datos desde estas fuentes.
 
+### La función read.csv()
+La función ```read.csv()``` importa datos desde archivos con valores separados por comas (CSV, _comma separated values_).
 
-## Including Plots
-
-You can also embed plots, for example:
-
-```{r pressure, echo=FALSE}
-plot(pressure)
+```{r}
+# Casos confirmados de Covid-19 en los países de Centroamérica
+ca_covid19_confirmados <- read.csv('datos/ca-covid19-confirmados.csv')
+print(ca_covid19_confirmados)
 ```
 
-Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
+```{r}
+# Casos recuperados, fallecidos, activos y confirmados de Covid-19 en los países de Centroamérica
+ca_covid19_todos <- read.csv('datos/ca-covid19-todos.csv')
+print(ca_covid19_todos)
+```
+
+Los siguientes ejemplos están basados en el [índice de movilidad de Citymapper](https://citymapper.com/cmi), el cual mide la movilidad en varias ciudades del mundo durante la pandemia de Covid-19.
+
+```{r}
+# Carga de los datos de todas las ciudades desde un archivo almacenado en la Web
+indice_movilidad <- read.csv('https://raw.githubusercontent.com/geoprocesamiento-2020i/datos/master/covid19/movilidad/citymapper/Citymapper_Mobility_Index.csv')
+```
+
+```{r}
+# Resumen
+print(summary(indice_movilidad))
+```
+
+```{r}
+# Columnas 1 (Date), 3 (Barcelona), 20 (México DF) y 21 (Milán)
+print(indice_movilidad[, c(1, 3, 20, 21)])
+```
+
+## Graficación
