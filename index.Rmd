@@ -152,3 +152,7 @@ print(indice_movilidad[, c(1, 3, 20, 21)])
 ```
 
 ## Graficación
+
+### La función barplot()
+
+### La función plot()
