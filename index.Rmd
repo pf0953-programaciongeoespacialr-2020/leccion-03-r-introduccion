@@ -31,9 +31,9 @@ R es un proyecto de [software libre](https://en.wikipedia.org/wiki/Free_software
 Para programar en R, puede utilizarse una interfaz de línea de comandos y también ambientes de desarrollo integrados (IDE, _integrated development environment_) como [Jupyter](https://jupyter.org/) o [RStudio](https://rstudio.com/).
 
 ## Funciones, bibliotecas y paquetes
-R, al igual que otros lenguajes de programación, estructura su funcionalidad por medio de segmentos de código llamados funciones. Cada función realiza una tarea específica como, por ejemplo, un cálculo matemático. Todas las funciones tienen un nombre y un conjunto de parámetros que especifican los datos que procesa la función. Los parámetros se escriben entre paréntesis redondos ```()``` y estos siempre deben incluirse, aún en el caso de que la función no tenga ningún parámetro. Si la función tiene varios parámetros, deben separarse mediante comas ```,```.
+R, al igual que otros lenguajes de programación, estructura su funcionalidad por medio de segmentos de código llamados funciones. Cada función realiza una tarea específica como, por ejemplo, un cálculo matemático. Todas las funciones tienen un nombre y un conjunto de parámetros que especifican los datos de entrada que procesa la función. Los parámetros se escriben entre paréntesis redondos (```()```) y estos siempre deben incluirse, aún en el caso de que la función no tenga ningún parámetro. Si la función tiene varios parámetros, deben separarse mediante comas (```,```).
 
-Por ejemplo, la función ```print()``` recibe como parámetro un valor (ej. un texto o un número) para imprimir en la pantalla.
+Por ejemplo, la función ```print()``` recibe como parámetro un valor (ej. un texto o un número) para imprimirlo en la pantalla.
 
 ```{r}
 # Impresión de una hilera de carácteres
@@ -47,16 +47,30 @@ La función  ```mean()``` retorna la media aritmética del parámetro de entrada
 mean(c(2, 4, 5, 9))
 ```
 
+La función ```getwd()``` (_get working directory_) retorna la ruta del directorio de trabajo de la sesión actual de R. Este es el directorio en el cual R espera encontrar, por ejemplo, archivos de datos.
+
+```{r}
+# Consultar directorio de trabajo
+getwd()
+```
+
+La función ```setwd()``` (_set working directory_) establece la ruta del directorio de trabajo de la sesión actual de R. Como parámetro, recibe una hilera de texto con la ruta.
+
+```{r}
+# Establecer directorio de trabajo (la ruta debe existir)
+# setwd("/home/mfvargas/geogrocesamiento-2020i/lecciones/leccion-04-r")
+```
+
 Para obtener ayuda de una función desde la línea de comandos de R, puede utilizarse un signo de pregunta (```?```) seguido del nombre de la función. Por ejemplo:
 
 ```{r}
-# Ayuda de la función mean()
-?mean
+# Ayuda de la función setwd()
+?setwd
 ```
 
 También puede obtenerse ayuda sobre una función en los buscadores de Internet (ej. Google), además de ejemplos y otros materiales de apoyo.
 
-Las funciones de R se agrupan en conjuntos llamados **bibliotecas**, las cuales se distribuyen en [paquetes](https://cran.r-project.org/web/packages/available_packages_by_name.html). Para utilizar un paquete, este debe cargarse primero con la función ```require()```.
+Las funciones de R se agrupan en conjuntos llamados bibliotecas, las cuales se distribuyen en [paquetes](https://cran.r-project.org/web/packages/available_packages_by_name.html). Para utilizar un paquete, este debe cargarse primero con la función ```require()```.
 
 ```{r}
 # Carga del paquete stats
@@ -64,9 +78,9 @@ require(stats)
 ```
 
 ## Tipos de datos, objetos y variables
-R puede trabajar con varios tipos de datos, entre los que están números, carácteres (i.e. textos) y _booleanos_ (o lógicos). También utiliza tipos más complejos, tales como vectores y matrices.
+R puede trabajar con varios tipos de datos, entre los que están números, carácteres (i.e. textos) y _booleanos_ (o lógicos). También utiliza tipos más complejos, como vectores y matrices.
 
-Como se mencionó anteriormente, R es un lenguaje de programación orientado a objetos. Un objeto es una entidad que tiene asociadas propiedades y métodos para manipular esas propiedades. Un objeto puede ser, por ejemplo, un número, un texto, un vector o una matriz. **En R, todo es un objeto**.
+Como se mencionó anteriormente, R es un lenguaje de programación orientado a objetos. Un objeto es una entidad que tiene asociadas propiedades y métodos para manipular esas propiedades. Un objeto puede ser, por ejemplo, un número, un texto, un vector o una matriz.
 
 Hay muchas formas de crear objetos en R. Una de las más sencillas es con los operadores de asignación. Estos son ```=``` y ```<-```. Las siguientes sentencias crean un número, un texto y un vector.
 
@@ -81,7 +95,7 @@ nombre <- 'Manuel'
 dias <- c('Domingo', 'Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado')
 ```
 
-Tanto ```x```, ```nombre``` como ```dias``` son variables. Una variable es una etiqueta que se le asigna a un valor (o a un objeto). Una variable tiene un nombre que debe comenzar con una letra.
+Tanto ```x```, como ```nombre``` como ```dias``` son variables. Una variable es una etiqueta que se le asigna a un valor (o a un objeto). Una variable tiene un nombre que debe comenzar con una letra.
 
 El tipo de una variable (u objeto) puede consultarse con la función ```typeof()```. Por ejemplo:
 
@@ -93,7 +107,7 @@ print(typeof(x))
 print(typeof(nombre))
 ```
 
-A continuación, se describen en detalle algunos de los tipos de datos utilizados en el lenguaje R.
+A continuación, se describen con más detalle algunos de los tipos de datos utilizados en el lenguaje R.
 
 ### Números
 Pueden ser enteros o fracciones. Se utilizan en operaciones aritméticas (ej. suma, resta, multiplicación, división).
@@ -146,9 +160,10 @@ print(c)
 ```
 
 Las expresiones booleanas pueden combinarse con operadores como: 
-* ```!``` (negación, en inglés _NOT_)
-* ```&&``` (y, en inglés _AND_)
-* ```&``` (o, en inglés _OR_).
+
+* ```!``` (NO, en inglés _NOT_)
+* ```&&``` (Y, en inglés _AND_)
+* ```&``` (O, en inglés _OR_).
 
 ```{r}
 # Operador lógico AND
@@ -165,8 +180,6 @@ print((2 + 2 == 5) & (20 <= 10))
 print(!(2 + 2 == 5))
 ```
 
-
-
 ### Vectores
 Un vector es una estructura de una dimensión que combina objetos del mismo tipo. Se crean con la función ```c()``` (del inglés _combine_), como en los siguientes ejemplos:
 
@@ -178,46 +191,59 @@ print(a)
 ```
 
 ```{r}
+# Definición de un vector de hileras de carácteres
 b = c("Álvaro", "Ana", "Berta", "Bernardo")
+
 print(b)
 ```
 
 ### Data Frames
-Los _data frames_ son estructuras bidimensionales compuestas por varios vectores, de manera similar a una matriz. Cada vector corresponde una columna de la matriz. La función ```data.frame()``` puede utilizarse para crear un data frame con dos columnas: x e y.
+Los _data frames_ son estructuras bidimensionales compuestas por varios vectores, de manera similar a una matriz. Cada vector corresponde una columna de la matriz.
+
+La función ```data.frame()``` puede utilizarse para crear un data frame con dos columnas (x, y), a partir de dos vectores.
 
 ```{r}
+# Vector de nombres de países
 pais = c("Panamá", "Costa Rica", "Nicaragua", "El Salvador", "Honduras", "Guatemala", "Belice")
+
+# Vector de cantidades de habitantes (en millones)
 poblacion = c(4.1, 5.0, 6.2, 6.4, 9.2, 16.9, 0.3)
+
+# Creación de un data frame a partir de los dos vectores
 d = data.frame(x = pais, y = poblacion)
+
 print(d)
 ```
 
 La función ```summary()``` proporciona un resumen de los contenidos de un data frame:
 ```{r}
+# Resumen de los contenidos del data frame
 print(summary(d))
 ```
 
-Para efectos de pruebas y ejemplos, el interpretador de R incorpora varios conjuntos de datos en la forma de data frames que pueden listarse con la función ```data()```. Para consultar un conjunto en particular, puede utilizarse el operador  ```? ```:
+Para efectos de pruebas y ejemplos, el interpretador de R incorpora varios conjuntos de datos en la forma de data frames que pueden listarse con la función ```data()```. Para consultar un conjunto en particular, puede utilizarse el operador  ```? ``` desde la línea de comandos de R:
 
 ```{r}
-print(?cars)
+?cars
 ```
 
 ## Importación de datos
-Por lo general, los datos con los que se trabaja en R provienen de fuentes externas, como archivos de texto o servicios web. A continuación, se estudiarán algunas de las funciones que permiten importar datos desde estas fuentes.
+Por lo general, los datos con los que se trabaja en R provienen de fuentes externas, como archivos, bases de datos o [servicios web](https://en.wikipedia.org/wiki/Web_service). A continuación, se estudiarán funciones que permiten importar datos desde algunas de estas fuentes.
 
 ### La función read.csv()
-La función ```read.csv()``` importa datos desde archivos con valores separados por comas (CSV, _comma separated values_).
+La función ```read.csv()``` importa datos desde un archivo de valores separados por comas (CSV, _comma separated values_) y los almacena en un data frame. Como parámetro, recibe la ruta del archivo. Si la ruta no es absoluta, se toma como relativa al directorio actual de trabajo.
 
 ```{r}
-# Casos confirmados de Covid-19 en los países de Centroamérica
+# Importación de casos confirmados de Covid-19 en los países de Centroamérica
 ca_covid19_confirmados <- read.csv('datos/ca-covid19-confirmados.csv')
+
 print(ca_covid19_confirmados)
 ```
 
 ```{r}
-# Casos recuperados, fallecidos, activos y confirmados de Covid-19 en los países de Centroamérica
+# Importación de casos recuperados, fallecidos, activos y confirmados de Covid-19 en los países de Centroamérica
 ca_covid19_todos <- read.csv('datos/ca-covid19-todos.csv')
+
 print(ca_covid19_todos)
 ```
 
@@ -231,6 +257,13 @@ indice_movilidad <- read.csv('https://raw.githubusercontent.com/geoprocesamiento
 ```{r}
 # Resumen
 print(summary(indice_movilidad))
+```
+
+Para visualizar mejor el data frame, es posible imprimir filas o columnas específicas:
+
+```{r}
+# Primera fila (2020-03-02) de las primeras cinco ciudades
+print(indice_movilidad[c(1), c(1, 2, 3, 4, 5, 6)])
 ```
 
 ```{r}

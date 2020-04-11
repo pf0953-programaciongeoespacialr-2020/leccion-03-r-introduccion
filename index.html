@@ -1582,8 +1582,8 @@ div.tocify {
 </div>
 <div id="funciones-bibliotecas-y-paquetes" class="section level2">
 <h2>Funciones, bibliotecas y paquetes</h2>
-<p>R, al igual que otros lenguajes de programación, estructura su funcionalidad por medio de segmentos de código llamados funciones. Cada función realiza una tarea específica como, por ejemplo, un cálculo matemático. Todas las funciones tienen un nombre y un conjunto de parámetros que especifican los datos que procesa la función. Los parámetros se escriben entre paréntesis redondos <code>()</code> y estos siempre deben incluirse, aún en el caso de que la función no tenga ningún parámetro. Si la función tiene varios parámetros, deben separarse mediante comas <code>,</code>.</p>
-<p>Por ejemplo, la función <code>print()</code> recibe como parámetro un valor (ej. un texto o un número) para imprimir en la pantalla.</p>
+<p>R, al igual que otros lenguajes de programación, estructura su funcionalidad por medio de segmentos de código llamados funciones. Cada función realiza una tarea específica como, por ejemplo, un cálculo matemático. Todas las funciones tienen un nombre y un conjunto de parámetros que especifican los datos de entrada que procesa la función. Los parámetros se escriben entre paréntesis redondos (<code>()</code>) y estos siempre deben incluirse, aún en el caso de que la función no tenga ningún parámetro. Si la función tiene varios parámetros, deben separarse mediante comas (<code>,</code>).</p>
+<p>Por ejemplo, la función <code>print()</code> recibe como parámetro un valor (ej. un texto o un número) para imprimirlo en la pantalla.</p>
 <pre class="r"><code># Impresión de una hilera de carácteres
 print(&quot;Hola mundo&quot;)</code></pre>
 <pre><code>## [1] &quot;Hola mundo&quot;</code></pre>
@@ -1591,18 +1591,25 @@ print(&quot;Hola mundo&quot;)</code></pre>
 <pre class="r"><code># Media aritmética
 mean(c(2, 4, 5, 9))</code></pre>
 <pre><code>## [1] 5</code></pre>
+<p>La función <code>getwd()</code> (<em>get working directory</em>) retorna la ruta del directorio de trabajo de la sesión actual de R. Este es el directorio en el cual R espera encontrar, por ejemplo, archivos de datos.</p>
+<pre class="r"><code># Consultar directorio de trabajo
+getwd()</code></pre>
+<pre><code>## [1] &quot;/home/mfvargas/geogrocesamiento-2020i/lecciones/leccion-04-r&quot;</code></pre>
+<p>La función <code>setwd()</code> (<em>set working directory</em>) establece la ruta del directorio de trabajo de la sesión actual de R. Como parámetro, recibe una hilera de texto con la ruta.</p>
+<pre class="r"><code># Establecer directorio de trabajo (la ruta debe existir)
+# setwd(&quot;/home/mfvargas/geogrocesamiento-2020i/lecciones/leccion-04-r&quot;)</code></pre>
 <p>Para obtener ayuda de una función desde la línea de comandos de R, puede utilizarse un signo de pregunta (<code>?</code>) seguido del nombre de la función. Por ejemplo:</p>
-<pre class="r"><code># Ayuda de la función mean()
-?mean</code></pre>
+<pre class="r"><code># Ayuda de la función setwd()
+?setwd</code></pre>
 <p>También puede obtenerse ayuda sobre una función en los buscadores de Internet (ej. Google), además de ejemplos y otros materiales de apoyo.</p>
-<p>Las funciones de R se agrupan en conjuntos llamados <strong>bibliotecas</strong>, las cuales se distribuyen en <a href="https://cran.r-project.org/web/packages/available_packages_by_name.html">paquetes</a>. Para utilizar un paquete, este debe cargarse primero con la función <code>require()</code>.</p>
+<p>Las funciones de R se agrupan en conjuntos llamados bibliotecas, las cuales se distribuyen en <a href="https://cran.r-project.org/web/packages/available_packages_by_name.html">paquetes</a>. Para utilizar un paquete, este debe cargarse primero con la función <code>require()</code>.</p>
 <pre class="r"><code># Carga del paquete stats
 require(stats)</code></pre>
 </div>
 <div id="tipos-de-datos-objetos-y-variables" class="section level2">
 <h2>Tipos de datos, objetos y variables</h2>
-<p>R puede trabajar con varios tipos de datos, entre los que están números, carácteres (i.e. textos) y <em>booleanos</em> (o lógicos). También utiliza tipos más complejos, tales como vectores y matrices.</p>
-<p>Como se mencionó anteriormente, R es un lenguaje de programación orientado a objetos. Un objeto es una entidad que tiene asociadas propiedades y métodos para manipular esas propiedades. Un objeto puede ser, por ejemplo, un número, un texto, un vector o una matriz. <strong>En R, todo es un objeto</strong>.</p>
+<p>R puede trabajar con varios tipos de datos, entre los que están números, carácteres (i.e. textos) y <em>booleanos</em> (o lógicos). También utiliza tipos más complejos, como vectores y matrices.</p>
+<p>Como se mencionó anteriormente, R es un lenguaje de programación orientado a objetos. Un objeto es una entidad que tiene asociadas propiedades y métodos para manipular esas propiedades. Un objeto puede ser, por ejemplo, un número, un texto, un vector o una matriz.</p>
 <p>Hay muchas formas de crear objetos en R. Una de las más sencillas es con los operadores de asignación. Estos son <code>=</code> y <code>&lt;-</code>. Las siguientes sentencias crean un número, un texto y un vector.</p>
 <pre class="r"><code># Número
 x &lt;- 10
@@ -1612,13 +1619,13 @@ nombre &lt;- 'Manuel'
 
 # Vector de hileras de carácteres
 dias &lt;- c('Domingo', 'Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado')</code></pre>
-<p>Tanto <code>x</code>, <code>nombre</code> como <code>dias</code> son variables. Una variable es una etiqueta que se le asigna a un valor (o a un objeto). Una variable tiene un nombre que debe comenzar con una letra.</p>
+<p>Tanto <code>x</code>, como <code>nombre</code> como <code>dias</code> son variables. Una variable es una etiqueta que se le asigna a un valor (o a un objeto). Una variable tiene un nombre que debe comenzar con una letra.</p>
 <p>El tipo de una variable (u objeto) puede consultarse con la función <code>typeof()</code>. Por ejemplo:</p>
 <pre class="r"><code>print(typeof(x))</code></pre>
 <pre><code>## [1] &quot;double&quot;</code></pre>
 <pre class="r"><code>print(typeof(nombre))</code></pre>
 <pre><code>## [1] &quot;character&quot;</code></pre>
-<p>A continuación, se describen en detalle algunos de los tipos de datos utilizados en el lenguaje R.</p>
+<p>A continuación, se describen con más detalle algunos de los tipos de datos utilizados en el lenguaje R.</p>
 <div id="numeros" class="section level3">
 <h3>Números</h3>
 <p>Pueden ser enteros o fracciones. Se utilizan en operaciones aritméticas (ej. suma, resta, multiplicación, división).</p>
@@ -1661,7 +1668,12 @@ c = 1 &gt; 2
 
 print(c)</code></pre>
 <pre><code>## [1] FALSE</code></pre>
-<p>Las expresiones booleanas pueden combinarse con operadores como: * <code>!</code> (negación, en inglés <em>NOT</em>) * <code>&amp;&amp;</code> (y, en inglés <em>AND</em>) * <code>&amp;</code> (o, en inglés <em>OR</em>).</p>
+<p>Las expresiones booleanas pueden combinarse con operadores como:</p>
+<ul>
+<li><code>!</code> (NO, en inglés <em>NOT</em>)</li>
+<li><code>&amp;&amp;</code> (Y, en inglés <em>AND</em>)</li>
+<li><code>&amp;</code> (O, en inglés <em>OR</em>).</li>
+</ul>
 <pre class="r"><code># Operador lógico AND
 print((1 &lt; 2) &amp;&amp; (3 &lt; 4))</code></pre>
 <pre><code>## [1] TRUE</code></pre>
@@ -1680,16 +1692,25 @@ a = c(1, 2, 3, 4, 5)
 
 print(a)</code></pre>
 <pre><code>## [1] 1 2 3 4 5</code></pre>
-<pre class="r"><code>b = c(&quot;Álvaro&quot;, &quot;Ana&quot;, &quot;Berta&quot;, &quot;Bernardo&quot;)
+<pre class="r"><code># Definición de un vector de hileras de carácteres
+b = c(&quot;Álvaro&quot;, &quot;Ana&quot;, &quot;Berta&quot;, &quot;Bernardo&quot;)
+
 print(b)</code></pre>
 <pre><code>## [1] &quot;Álvaro&quot;   &quot;Ana&quot;      &quot;Berta&quot;    &quot;Bernardo&quot;</code></pre>
 </div>
 <div id="data-frames" class="section level3">
 <h3>Data Frames</h3>
-<p>Los <em>data frames</em> son estructuras bidimensionales compuestas por varios vectores, de manera similar a una matriz. Cada vector corresponde una columna de la matriz. La función <code>data.frame()</code> puede utilizarse para crear un data frame con dos columnas: x e y.</p>
-<pre class="r"><code>pais = c(&quot;Panamá&quot;, &quot;Costa Rica&quot;, &quot;Nicaragua&quot;, &quot;El Salvador&quot;, &quot;Honduras&quot;, &quot;Guatemala&quot;, &quot;Belice&quot;)
+<p>Los <em>data frames</em> son estructuras bidimensionales compuestas por varios vectores, de manera similar a una matriz. Cada vector corresponde una columna de la matriz.</p>
+<p>La función <code>data.frame()</code> puede utilizarse para crear un data frame con dos columnas (x, y), a partir de dos vectores.</p>
+<pre class="r"><code># Vector de nombres de países
+pais = c(&quot;Panamá&quot;, &quot;Costa Rica&quot;, &quot;Nicaragua&quot;, &quot;El Salvador&quot;, &quot;Honduras&quot;, &quot;Guatemala&quot;, &quot;Belice&quot;)
+
+# Vector de cantidades de habitantes (en millones)
 poblacion = c(4.1, 5.0, 6.2, 6.4, 9.2, 16.9, 0.3)
+
+# Creación de un data frame a partir de los dos vectores
 d = data.frame(x = pais, y = poblacion)
+
 print(d)</code></pre>
 <pre><code>##             x    y
 ## 1      Panamá  4.1
@@ -1700,7 +1721,8 @@ print(d)</code></pre>
 ## 6   Guatemala 16.9
 ## 7      Belice  0.3</code></pre>
 <p>La función <code>summary()</code> proporciona un resumen de los contenidos de un data frame:</p>
-<pre class="r"><code>print(summary(d))</code></pre>
+<pre class="r"><code># Resumen de los contenidos del data frame
+print(summary(d))</code></pre>
 <pre><code>##            x           y         
 ##  Belice     :1   Min.   : 0.300  
 ##  Costa Rica :1   1st Qu.: 4.550  
@@ -1709,18 +1731,19 @@ print(d)</code></pre>
 ##  Honduras   :1   3rd Qu.: 7.800  
 ##  Nicaragua  :1   Max.   :16.900  
 ##  Panamá     :1</code></pre>
-<p>Para efectos de pruebas y ejemplos, el interpretador de R incorpora varios conjuntos de datos en la forma de data frames que pueden listarse con la función <code>data()</code>. Para consultar un conjunto en particular, puede utilizarse el operador <code>?</code>:</p>
-<pre class="r"><code>print(?cars)</code></pre>
+<p>Para efectos de pruebas y ejemplos, el interpretador de R incorpora varios conjuntos de datos en la forma de data frames que pueden listarse con la función <code>data()</code>. Para consultar un conjunto en particular, puede utilizarse el operador <code>?</code> desde la línea de comandos de R:</p>
+<pre class="r"><code>?cars</code></pre>
 </div>
 </div>
 <div id="importacion-de-datos" class="section level2">
 <h2>Importación de datos</h2>
-<p>Por lo general, los datos con los que se trabaja en R provienen de fuentes externas, como archivos de texto o servicios web. A continuación, se estudiarán algunas de las funciones que permiten importar datos desde estas fuentes.</p>
+<p>Por lo general, los datos con los que se trabaja en R provienen de fuentes externas, como archivos, bases de datos o <a href="https://en.wikipedia.org/wiki/Web_service">servicios web</a>. A continuación, se estudiarán funciones que permiten importar datos desde algunas de estas fuentes.</p>
 <div id="la-funcion-read.csv" class="section level3">
 <h3>La función read.csv()</h3>
-<p>La función <code>read.csv()</code> importa datos desde archivos con valores separados por comas (CSV, <em>comma separated values</em>).</p>
-<pre class="r"><code># Casos confirmados de Covid-19 en los países de Centroamérica
+<p>La función <code>read.csv()</code> importa datos desde un archivo de valores separados por comas (CSV, <em>comma separated values</em>) y los almacena en un data frame. Como parámetro, recibe la ruta del archivo. Si la ruta no es absoluta, se toma como relativa al directorio actual de trabajo.</p>
+<pre class="r"><code># Importación de casos confirmados de Covid-19 en los países de Centroamérica
 ca_covid19_confirmados &lt;- read.csv('datos/ca-covid19-confirmados.csv')
+
 print(ca_covid19_confirmados)</code></pre>
 <pre><code>##            pais confirmados
 ## 1        Belice           9
@@ -1731,8 +1754,9 @@ print(ca_covid19_confirmados)</code></pre>
 ## 6        Panamá        2528
 ## 7   El Salvador         103
 ## 8 R. Dominicana        2349</code></pre>
-<pre class="r"><code># Casos recuperados, fallecidos, activos y confirmados de Covid-19 en los países de Centroamérica
+<pre class="r"><code># Importación de casos recuperados, fallecidos, activos y confirmados de Covid-19 en los países de Centroamérica
 ca_covid19_todos &lt;- read.csv('datos/ca-covid19-todos.csv')
+
 print(ca_covid19_todos)</code></pre>
 <pre><code>##            pais recuperados muertos activos confirmados
 ## 1        Belice           0       1       8           9
@@ -1836,6 +1860,11 @@ print(summary(indice_movilidad))</code></pre>
 ##  3rd Qu.:0.830   3rd Qu.:0.7000  
 ##  Max.   :1.340   Max.   :1.0200  
 ## </code></pre>
+<p>Para visualizar mejor el data frame, es posible imprimir filas o columnas específicas:</p>
+<pre class="r"><code># Primera fila (2020-03-02) de las primeras cinco ciudades
+print(indice_movilidad[c(1), c(1, 2, 3, 4, 5, 6)])</code></pre>
+<pre><code>##         Date Amsterdam Barcelona Berlin Birmingham Boston
+## 1 2020-03-02       1.1      1.13   1.03          1   0.97</code></pre>
 <pre class="r"><code># Columnas 1 (Date), 3 (Barcelona), 20 (México DF) y 21 (Milán)
 print(indice_movilidad[, c(1, 3, 20, 21)])</code></pre>
 <pre><code>##          Date Barcelona Mexico.City Milan
