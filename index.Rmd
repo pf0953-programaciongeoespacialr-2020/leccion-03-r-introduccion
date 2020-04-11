@@ -16,31 +16,77 @@ knitr::opts_chunk$set(echo = TRUE)
 Para programar en R, puede utilizarse una interfaz de línea de comandos y también ambientes de desarrollo integrados (IDE, _integrated development environment_) como [Jupyter](https://jupyter.org/) o [RStudio](https://rstudio.com/).
 
 
-## Tipos de datos
-R es un [lenguaje de programación orientado a objetos](https://en.wikipedia.org/wiki/Object-oriented_programming). un objeto es una entidad que tiene asociadas propiedades y métodos para manipular esas propiedades.
+## Tipos de datos, objetos y variables
+R puede trabajar con varios tipos de datos, entre los que están números, caracteres (i.e. textos) y _booleanos_ (o lógicos). También utiliza tipos más complejos, tales como vectores y matrices.
 
+R es un [lenguaje de programación orientado a objetos](https://en.wikipedia.org/wiki/Object-oriented_programming). Un objeto es una entidad que tiene asociadas propiedades y métodos para manipular esas propiedades. Un objeto puede ser, por ejemplo, un número, un texto, un vector o una matriz. En R, *todo es un objeto*.
 
-### Básicos
+Hay muchas formas de crear objetos en R. Una de las más sencillas es con los operadores de asignación. Estos son ```=``` y ```<-```. Las siguientes sentencias crean un número, un texto y un vector, llamados respectivamente .
 
-#### Números
+```{r}
+x <- 10
+nombre <- 'Manuel'
+dias <- c('Domingo', 'Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado')
+```
 
-#### Cadenas de caracteres
+Tanto ```x```, ```nombre``` como ```dias``` son variables. Una variable es una etiqueta que se le asigna a un valor (o a un objeto). Una variable tiene un nombre que debe comenzar con una letra.
 
-#### Booleanos
+El tipo de una variable puede consultarse con la función ```typeof```. Por ejemplo:
 
-### Otros
+```{r}
+typeof(x)
+```
 
-#### Vectores
+```{r}
+typeof(nombre)
+```
 
-#### Data Frames
+A continuación, se describen en detalle algunos de los tipos de datos utilizados en el lenguaje R.
 
+### Números
+Pueden ser enteros o fracciones. Se utilizan en operaciones aritméticas (ej. suma, resta, multiplicación, división).
 
+```{r}
+x <- 10
+y <- 20
+x + y
+```
 
+### Caracteres
+Se utilizan para representar textos. Deben estar encerrados entre comillas simples ```'```o dobles ```"```.
 
+```{r}
+nombre <- "María"
+apellido <- "Pérez"
+paste(nombre, apellido)
+```
 
+### Vectores
+Un vector es una estructura de una dimensión que combina objetos del mismo tipo. Se crean con la función ```c()```, como en los siguientes ejemplos:
 
-```{r cars}
-summary(cars)
+```{r}
+a = c(1, 2, 3, 4, 5)
+a
+```
+
+```{r}
+b = c("Álvaro", "Ana", "Berta", "Bernardo")
+b
+```
+
+### Data Frames
+Los _data frames_ son estructuras bidimensionales compuestas por varios vectores, de manera similar a una matriz. Cada vector corresponde una columna de la matriz. La función ```data.frame()``` puede utilizarse para crear un data frame con dos columnas: x e y.
+
+```{r}
+pais = c("Panamá", "Costa Rica", "Nicaragua", "El Salvador", "Honduras", "Guatemala", "Belice")
+poblacion = c(4.1, 5.0, 6.2, 6.4, 9.2, 16.9, 0.3)
+d = data.frame(x = pais, y = poblacion)
+d
+```
+
+La función ```summary()``` proporciona un resumen de los contenidos de un data frame:
+```{r}
+summary(d)
 ```
 
 ## Including Plots

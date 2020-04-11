@@ -387,37 +387,72 @@ $(document).ready(function () {
 <p><a href="https://www.r-project.org/">R</a> es un lenguaje de programación enfocado en análisis estadístico. Es ampliamente utilizado en áreas como ciencia de datos, análisis de datos y graficación estadística, entre otras. Fue creado por Ross Ihaka y Robert Gentleman en la Universidad de Auckland, Nueva Zelanda, en 1993. R es un proyecto de software libre que se comparte mediante una licencia <a href="https://www.gnu.org/licenses/old-licenses/gpl-2.0.html">GNU General Public Licence (GNU GPL)</a>.</p>
 <p>Para programar en R, puede utilizarse una interfaz de línea de comandos y también ambientes de desarrollo integrados (IDE, <em>integrated development environment</em>) como <a href="https://jupyter.org/">Jupyter</a> o <a href="https://rstudio.com/">RStudio</a>.</p>
 </div>
-<div id="tipos-de-datos" class="section level2">
-<h2>Tipos de datos</h2>
-<p>R es un <a href="https://en.wikipedia.org/wiki/Object-oriented_programming">lenguaje de programación orientado a objetos</a>. un objeto es una entidad que tiene asociadas propiedades y métodos para manipular esas propiedades.</p>
-<div id="basicos" class="section level3">
-<h3>Básicos</h3>
-<div id="numeros" class="section level4">
-<h4>Números</h4>
+<div id="tipos-de-datos-objetos-y-variables" class="section level2">
+<h2>Tipos de datos, objetos y variables</h2>
+<p>R puede trabajar con varios tipos de datos, entre los que están números, caracteres (i.e. textos) y <em>booleanos</em> (o lógicos). También utiliza tipos más complejos, tales como vectores y matrices.</p>
+<p>R es un <a href="https://en.wikipedia.org/wiki/Object-oriented_programming">lenguaje de programación orientado a objetos</a>. Un objeto es una entidad que tiene asociadas propiedades y métodos para manipular esas propiedades. Un objeto puede ser, por ejemplo, un número, un texto, un vector o una matriz. En R, <em>todo es un objeto</em>.</p>
+<p>Hay muchas formas de crear objetos en R. Una de las más sencillas es con los operadores de asignación. Estos son <code>=</code> y <code>&lt;-</code>. Las siguientes sentencias crean un número, un texto y un vector, llamados respectivamente .</p>
+<pre class="r"><code>x &lt;- 10
+nombre &lt;- 'Manuel'
+dias &lt;- c('Domingo', 'Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado')</code></pre>
+<p>Tanto <code>x</code>, <code>nombre</code> como <code>dias</code> son variables. Una variable es una etiqueta que se le asigna a un valor (o a un objeto). Una variable tiene un nombre que debe comenzar con una letra.</p>
+<p>El tipo de una variable puede consultarse con la función <code>typeof</code>. Por ejemplo:</p>
+<pre class="r"><code>typeof(x)</code></pre>
+<pre><code>## [1] &quot;double&quot;</code></pre>
+<pre class="r"><code>typeof(nombre)</code></pre>
+<pre><code>## [1] &quot;character&quot;</code></pre>
+<p>A continuación, se describen en detalle algunos de los tipos de datos utilizados en el lenguaje R.</p>
+<div id="numeros" class="section level3">
+<h3>Números</h3>
+<p>Pueden ser enteros o fracciones. Se utilizan en operaciones aritméticas (ej. suma, resta, multiplicación, división).</p>
+<pre class="r"><code>x &lt;- 10
+y &lt;- 20
+x + y</code></pre>
+<pre><code>## [1] 30</code></pre>
 </div>
-<div id="cadenas-de-caracteres" class="section level4">
-<h4>Cadenas de caracteres</h4>
+<div id="caracteres" class="section level3">
+<h3>Caracteres</h3>
+<p>Se utilizan para representar textos. Deben estar encerrados entre comillas simples <code>'</code>o dobles <code>&quot;</code>.</p>
+<pre class="r"><code>nombre &lt;- &quot;María&quot;
+apellido &lt;- &quot;Pérez&quot;
+paste(nombre, apellido)</code></pre>
+<pre><code>## [1] &quot;María Pérez&quot;</code></pre>
 </div>
-<div id="booleanos" class="section level4">
-<h4>Booleanos</h4>
+<div id="vectores" class="section level3">
+<h3>Vectores</h3>
+<p>Un vector es una estructura de una dimensión que combina objetos del mismo tipo. Se crean con la función <code>c()</code>, como en los siguientes ejemplos:</p>
+<pre class="r"><code>a = c(1, 2, 3, 4, 5)
+a</code></pre>
+<pre><code>## [1] 1 2 3 4 5</code></pre>
+<pre class="r"><code>b = c(&quot;Álvaro&quot;, &quot;Ana&quot;, &quot;Berta&quot;, &quot;Bernardo&quot;)
+b</code></pre>
+<pre><code>## [1] &quot;Álvaro&quot;   &quot;Ana&quot;      &quot;Berta&quot;    &quot;Bernardo&quot;</code></pre>
 </div>
-</div>
-<div id="otros" class="section level3">
-<h3>Otros</h3>
-<div id="vectores" class="section level4">
-<h4>Vectores</h4>
-</div>
-<div id="data-frames" class="section level4">
-<h4>Data Frames</h4>
-<pre class="r"><code>summary(cars)</code></pre>
-<pre><code>##      speed           dist       
-##  Min.   : 4.0   Min.   :  2.00  
-##  1st Qu.:12.0   1st Qu.: 26.00  
-##  Median :15.0   Median : 36.00  
-##  Mean   :15.4   Mean   : 42.98  
-##  3rd Qu.:19.0   3rd Qu.: 56.00  
-##  Max.   :25.0   Max.   :120.00</code></pre>
-</div>
+<div id="data-frames" class="section level3">
+<h3>Data Frames</h3>
+<p>Los <em>data frames</em> son estructuras bidimensionales compuestas por varios vectores, de manera similar a una matriz. Cada vector corresponde una columna de la matriz. La función <code>data.frame()</code> puede utilizarse para crear un data frame con dos columnas: x e y.</p>
+<pre class="r"><code>pais = c(&quot;Panamá&quot;, &quot;Costa Rica&quot;, &quot;Nicaragua&quot;, &quot;El Salvador&quot;, &quot;Honduras&quot;, &quot;Guatemala&quot;, &quot;Belice&quot;)
+poblacion = c(4.1, 5.0, 6.2, 6.4, 9.2, 16.9, 0.3)
+d = data.frame(x = pais, y = poblacion)
+d</code></pre>
+<pre><code>##             x    y
+## 1      Panamá  4.1
+## 2  Costa Rica  5.0
+## 3   Nicaragua  6.2
+## 4 El Salvador  6.4
+## 5    Honduras  9.2
+## 6   Guatemala 16.9
+## 7      Belice  0.3</code></pre>
+<p>La función <code>summary()</code> proporciona un resumen de los contenidos de un data frame:</p>
+<pre class="r"><code>summary(d)</code></pre>
+<pre><code>##            x           y         
+##  Belice     :1   Min.   : 0.300  
+##  Costa Rica :1   1st Qu.: 4.550  
+##  El Salvador:1   Median : 6.200  
+##  Guatemala  :1   Mean   : 6.871  
+##  Honduras   :1   3rd Qu.: 7.800  
+##  Nicaragua  :1   Max.   :16.900  
+##  Panamá     :1</code></pre>
 </div>
 </div>
 <div id="including-plots" class="section level2">
