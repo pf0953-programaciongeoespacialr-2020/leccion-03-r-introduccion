@@ -384,13 +384,21 @@ $(document).ready(function () {
 
 <div id="el-lenguaje-de-programacion-r" class="section level2">
 <h2>El lenguaje de programación R</h2>
-<p><a href="https://www.r-project.org/">R</a> es un lenguaje de programación enfocado en análisis estadístico. Es ampliamente utilizado en áreas como ciencia de datos, análisis de datos y graficación estadística, entre otras. Fue creado por Ross Ihaka y Robert Gentleman en la Universidad de Auckland, Nueva Zelanda, en 1993. R es un proyecto de software libre que se comparte mediante una licencia <a href="https://www.gnu.org/licenses/old-licenses/gpl-2.0.html">GNU General Public Licence (GNU GPL)</a>.</p>
+<p><a href="https://www.r-project.org/">R</a> es un lenguaje de programación enfocado en análisis estadístico. Es ampliamente utilizado en áreas como aprendizaje automático (<em>machine learning</em>), ciencia de datos, investigación biomédica, bioinformática y finanzas, entre otras. Fue creado por Ross Ihaka y Robert Gentleman en la Universidad de Auckland, Nueva Zelanda, en 1993.</p>
+<p>Las siguientes son otras características importantes del lenguaje R:</p>
+<ul>
+<li>Es <a href="https://en.wikipedia.org/wiki/Interpreter_(computing)">interpretado</a>: las instrucciones se traducen una por una a <a href="https://en.wikipedia.org/wiki/Machine_code">lenguaje máquina</a>, a diferencia de los <a href="https://en.wikipedia.org/wiki/Compiler">lenguajes compilados</a>, que traducen de manera conjunta las instrucciones de una unidad completa (ej. un programa o una biblioteca). Los lenguajes interpretados tienden a ser más lentos que los compilados, pero también son más flexibles como entornos de desarrollo y depuración.</li>
+<li>Es <a href="https://en.wikipedia.org/wiki/Cross-platform_software">multiplataforma</a>: puede ejecutarse en los sistemas operativos más populares (ej. Microsoft Windows, macOS, Linux).</li>
+<li>Tiene un <a href="https://pythonconquerstheuniverse.wordpress.com/2009/10/03/static-vs-dynamic-typing-of-programming-languages/">sistema de tipos de datos dinámico</a>: las variables pueden tomar diferentes tipos de datos (ej. textuales, numéricos) durante la ejecución del programa, a diferencia de un sistema de tipos de datos estático, en el que las variables solo pueden tener un tipo de datos.</li>
+<li>Soporta varios <a href="https://en.wikipedia.org/wiki/Programming_paradigm">paradigmas de programación</a>: los paradigmas son estilos o enfoques teóricos de programación. En el caso de Python, incluye <a href="https://en.wikipedia.org/wiki/Object-oriented_programming">programación orientada a objetos</a>, <a href="https://en.wikipedia.org/wiki/Imperative_programming">programación imperativa</a>, <a href="https://en.wikipedia.org/wiki/Functional_programming">programación funcional</a> y <a href="https://en.wikipedia.org/wiki/Procedural_programming">programación procedimental</a>.</li>
+</ul>
+<p>R es un proyecto de software libre que se comparte mediante una licencia <a href="https://www.gnu.org/licenses/old-licenses/gpl-2.0.html">GNU General Public Licence (GNU GPL)</a>. Esta característica permite que la funcionalidad original de R pueda ser ampliada mediante bilbiotecas o paquetes desarrollados por la comunidad de programadores.</p>
 <p>Para programar en R, puede utilizarse una interfaz de línea de comandos y también ambientes de desarrollo integrados (IDE, <em>integrated development environment</em>) como <a href="https://jupyter.org/">Jupyter</a> o <a href="https://rstudio.com/">RStudio</a>.</p>
 </div>
 <div id="tipos-de-datos-objetos-y-variables" class="section level2">
 <h2>Tipos de datos, objetos y variables</h2>
-<p>R puede trabajar con varios tipos de datos, entre los que están números, caracteres (i.e. textos) y <em>booleanos</em> (o lógicos). También utiliza tipos más complejos, tales como vectores y matrices.</p>
-<p>R es un <a href="https://en.wikipedia.org/wiki/Object-oriented_programming">lenguaje de programación orientado a objetos</a>. Un objeto es una entidad que tiene asociadas propiedades y métodos para manipular esas propiedades. Un objeto puede ser, por ejemplo, un número, un texto, un vector o una matriz. En R, <em>todo es un objeto</em>.</p>
+<p>R puede trabajar con varios tipos de datos, entre los que están números, carácteres (i.e. textos) y <em>booleanos</em> (o lógicos). También utiliza tipos más complejos, tales como vectores y matrices.</p>
+<p>R es un <a href="https://en.wikipedia.org/wiki/Object-oriented_programming">lenguaje de programación orientado a objetos</a>. Un objeto es una entidad que tiene asociadas propiedades y métodos para manipular esas propiedades. Un objeto puede ser, por ejemplo, un número, un texto, un vector o una matriz. <strong>En R, todo es un objeto</strong>.</p>
 <p>Hay muchas formas de crear objetos en R. Una de las más sencillas es con los operadores de asignación. Estos son <code>=</code> y <code>&lt;-</code>. Las siguientes sentencias crean un número, un texto y un vector, llamados respectivamente .</p>
 <pre class="r"><code>x &lt;- 10
 nombre &lt;- 'Manuel'
@@ -407,14 +415,24 @@ dias &lt;- c('Domingo', 'Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'S
 <p>Pueden ser enteros o fracciones. Se utilizan en operaciones aritméticas (ej. suma, resta, multiplicación, división).</p>
 <pre class="r"><code>x &lt;- 10
 y &lt;- 20
+
+# Suma
 x + y</code></pre>
 <pre><code>## [1] 30</code></pre>
+<pre class="r"><code>x &lt;- 0.5
+y &lt;- 3.14
+
+# Multiplicación
+x * y</code></pre>
+<pre><code>## [1] 1.57</code></pre>
 </div>
 <div id="caracteres" class="section level3">
-<h3>Caracteres</h3>
+<h3>Carácteres</h3>
 <p>Se utilizan para representar textos. Deben estar encerrados entre comillas simples <code>'</code>o dobles <code>&quot;</code>.</p>
 <pre class="r"><code>nombre &lt;- &quot;María&quot;
 apellido &lt;- &quot;Pérez&quot;
+
+# Concatenación de hileras de carácteres
 paste(nombre, apellido)</code></pre>
 <pre><code>## [1] &quot;María Pérez&quot;</code></pre>
 </div>
@@ -453,6 +471,11 @@ d</code></pre>
 ##  Honduras   :1   3rd Qu.: 7.800  
 ##  Nicaragua  :1   Max.   :16.900  
 ##  Panamá     :1</code></pre>
+<p>Para efectos de pruebas y ejemplos, el interpretador de R incorpora varios conjuntos de datos en la forma de data frames que pueden listarse con la función <code>data()</code>. Para consultar un conjunto en particular, puede utilizarse el operador <code>?</code>:</p>
+<pre class="r"><code>?cars</code></pre>
+<div id="la-funcion-read.csv" class="section level4">
+<h4>La función read.csv()</h4>
+</div>
 </div>
 </div>
 <div id="including-plots" class="section level2">

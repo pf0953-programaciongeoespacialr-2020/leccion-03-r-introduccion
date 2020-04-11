@@ -11,15 +11,25 @@ knitr::opts_chunk$set(echo = TRUE)
 
 ## El lenguaje de programación R
 
-[R](https://www.r-project.org/) es un lenguaje de programación enfocado en análisis estadístico. Es ampliamente utilizado en áreas como ciencia de datos, análisis de datos y graficación estadística, entre otras. Fue creado por Ross Ihaka y Robert Gentleman en la Universidad de Auckland, Nueva Zelanda, en 1993. R es un proyecto de software libre que se comparte mediante una licencia [GNU General Public Licence (GNU GPL)](https://www.gnu.org/licenses/old-licenses/gpl-2.0.html).
+[R](https://www.r-project.org/) es un lenguaje de programación enfocado en análisis estadístico. Es ampliamente utilizado en áreas como aprendizaje automático (_machine learning_), ciencia de datos, investigación biomédica, bioinformática y finanzas, entre otras. Fue creado por Ross Ihaka y Robert Gentleman en la Universidad de Auckland, Nueva Zelanda, en 1993.
+
+
+Las siguientes son otras características importantes del lenguaje R:
+
+* Es [interpretado](https://en.wikipedia.org/wiki/Interpreter_(computing)): las instrucciones se traducen una por una a [lenguaje máquina](https://en.wikipedia.org/wiki/Machine_code), a diferencia de los [lenguajes compilados](https://en.wikipedia.org/wiki/Compiler), que traducen de manera conjunta las instrucciones de una unidad completa (ej. un programa o una biblioteca). Los lenguajes interpretados tienden a ser más lentos que los compilados, pero también son más flexibles como entornos de desarrollo y depuración.
+* Es [multiplataforma](https://en.wikipedia.org/wiki/Cross-platform_software): puede ejecutarse en los sistemas operativos más populares (ej. Microsoft Windows, macOS, Linux).
+* Tiene un [sistema de tipos de datos dinámico](https://pythonconquerstheuniverse.wordpress.com/2009/10/03/static-vs-dynamic-typing-of-programming-languages/): las variables pueden tomar diferentes tipos de datos (ej. textuales, numéricos) durante la ejecución del programa, a diferencia de un sistema de tipos de datos estático, en el que las variables solo pueden tener un tipo de datos.
+* Soporta varios [paradigmas de programación](https://en.wikipedia.org/wiki/Programming_paradigm): los paradigmas son estilos o enfoques teóricos de programación. En el caso de Python, incluye [programación orientada a objetos](https://en.wikipedia.org/wiki/Object-oriented_programming), [programación imperativa](https://en.wikipedia.org/wiki/Imperative_programming), [programación funcional](https://en.wikipedia.org/wiki/Functional_programming) y [programación procedimental](https://en.wikipedia.org/wiki/Procedural_programming).
+
+R es un proyecto de software libre que se comparte mediante una licencia [GNU General Public Licence (GNU GPL)](https://www.gnu.org/licenses/old-licenses/gpl-2.0.html). Esta característica permite que la funcionalidad original de R pueda ser ampliada mediante bilbiotecas o paquetes desarrollados por la comunidad de programadores.
 
 Para programar en R, puede utilizarse una interfaz de línea de comandos y también ambientes de desarrollo integrados (IDE, _integrated development environment_) como [Jupyter](https://jupyter.org/) o [RStudio](https://rstudio.com/).
 
 
 ## Tipos de datos, objetos y variables
-R puede trabajar con varios tipos de datos, entre los que están números, caracteres (i.e. textos) y _booleanos_ (o lógicos). También utiliza tipos más complejos, tales como vectores y matrices.
+R puede trabajar con varios tipos de datos, entre los que están números, carácteres (i.e. textos) y _booleanos_ (o lógicos). También utiliza tipos más complejos, tales como vectores y matrices.
 
-R es un [lenguaje de programación orientado a objetos](https://en.wikipedia.org/wiki/Object-oriented_programming). Un objeto es una entidad que tiene asociadas propiedades y métodos para manipular esas propiedades. Un objeto puede ser, por ejemplo, un número, un texto, un vector o una matriz. En R, *todo es un objeto*.
+R es un [lenguaje de programación orientado a objetos](https://en.wikipedia.org/wiki/Object-oriented_programming). Un objeto es una entidad que tiene asociadas propiedades y métodos para manipular esas propiedades. Un objeto puede ser, por ejemplo, un número, un texto, un vector o una matriz. **En R, todo es un objeto**.
 
 Hay muchas formas de crear objetos en R. Una de las más sencillas es con los operadores de asignación. Estos son ```=``` y ```<-```. Las siguientes sentencias crean un número, un texto y un vector, llamados respectivamente .
 
@@ -49,15 +59,27 @@ Pueden ser enteros o fracciones. Se utilizan en operaciones aritméticas (ej. su
 ```{r}
 x <- 10
 y <- 20
+
+# Suma
 x + y
 ```
 
-### Caracteres
+```{r}
+x <- 0.5
+y <- 3.14
+
+# Multiplicación
+x * y
+```
+
+### Carácteres
 Se utilizan para representar textos. Deben estar encerrados entre comillas simples ```'```o dobles ```"```.
 
 ```{r}
 nombre <- "María"
 apellido <- "Pérez"
+
+# Concatenación de hileras de carácteres
 paste(nombre, apellido)
 ```
 
@@ -88,6 +110,15 @@ La función ```summary()``` proporciona un resumen de los contenidos de un data 
 ```{r}
 summary(d)
 ```
+
+Para efectos de pruebas y ejemplos, el interpretador de R incorpora varios conjuntos de datos en la forma de data frames que pueden listarse con la función ```data()```. Para consultar un conjunto en particular, puede utilizarse el operador  ```? ```:
+
+```{r}
+?cars
+```
+
+#### La función read.csv()
+
 
 ## Including Plots
 
