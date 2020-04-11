@@ -2,7 +2,13 @@
 title: "El lenguaje de programación R"
 author: "Manuel Vargas"
 date: "2020-04-09"
-output: html_document
+output:
+  html_document:
+    theme: readable    
+    toc: true
+    toc_float:
+      collapsed: false
+      smooth_scroll: false    
 ---
 
 ```{r setup, include=FALSE}
