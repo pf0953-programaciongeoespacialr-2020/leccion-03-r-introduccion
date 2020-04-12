@@ -16,10 +16,12 @@ knitr::opts_chunk$set(echo = TRUE)
 ```
 
 ## Recursos de interés
+* Sitio del curso: [GF-0604: Procesamiento de datos geográficos](https://geoprocesamiento-2020i.github.io/)
+* Datos utilizados durante el curso: [Datos del curso GF-0604: Procesamiento de datos geográficos](https://github.com/geoprocesamiento-2020i/datos)
 
 * Sitio oficial de R: [The R Project for Statistical Computing](https://www.r-project.org/)
 * Sitio oficial de RStudio: [RStudio | Open source & professional software for data science teams](https://rstudio.com/)
-* Visualización de datos: [From data to Viz | Find the graphic you need](https://www.data-to-viz.com/)
+* Sitio sobre visualización de datos: [From data to Viz | Find the graphic you need](https://www.data-to-viz.com/)
 
 ## Descripción general del lenguaje R
 
