@@ -15,9 +15,15 @@ output:
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-## Descripción general
+## Recursos de interés
 
-[R](https://www.r-project.org/) es un lenguaje de programación enfocado en análisis estadístico. Es ampliamente utilizado en [aprendizaje automático (_machine learning_)](https://en.wikipedia.org/wiki/Machine_learning), [ciencia de datos](https://en.wikipedia.org/wiki/Data_science) y [_big data_](https://en.wikipedia.org/wiki/Big_data), con aplicaciones en áreas como investigación biomédica, bioinformática y finanzas, entre muchas otras. Fue creado por Ross Ihaka y Robert Gentleman en la Universidad de Auckland, Nueva Zelanda, en 1993.
+* Sitio oficial de R: [The R Project for Statistical Computing](https://www.r-project.org/)
+* Sitio oficial de RStudio: [RStudio | Open source & professional software for data science teams](https://rstudio.com/)
+* Visualización de datos: [From data to Viz | Find the graphic you need](https://www.data-to-viz.com/)
+
+## Descripción general del lenguaje R
+
+[R](https://www.r-project.org/) es un lenguaje de programación enfocado en [análisis estadístico](https://en.wikipedia.org/wiki/Statistics). Es ampliamente utilizado en diversas áreas de investigación, entre las que pueden mencionarse [aprendizaje automático (_machine learning_)](https://en.wikipedia.org/wiki/Machine_learning), [ciencia de datos](https://en.wikipedia.org/wiki/Data_science) y [_big data_](https://en.wikipedia.org/wiki/Big_data), con aplicaciones en campos como biomedicina, bioinformática y finanzas, entre muchos otros. Fue creado por Ross Ihaka y Robert Gentleman en la Universidad de Auckland, Nueva Zelanda, en 1993.
 
 Algunas de las principales características de este lenguaje son:
 
@@ -26,14 +32,14 @@ Algunas de las principales características de este lenguaje son:
 * Tiene un [sistema de tipos de datos dinámico](https://pythonconquerstheuniverse.wordpress.com/2009/10/03/static-vs-dynamic-typing-of-programming-languages/): las variables pueden tomar diferentes tipos de datos (ej. textuales, numéricos) durante la ejecución del programa, a diferencia del caso de un sistema de tipos de datos estático, en el que las variables solo pueden tener un tipo de datos.
 * Soporta varios [paradigmas de programación](https://en.wikipedia.org/wiki/Programming_paradigm): los paradigmas son estilos o enfoques teóricos de programación. R soporta los paradigmas de [programación orientada a objetos](https://en.wikipedia.org/wiki/Object-oriented_programming), [programación imperativa](https://en.wikipedia.org/wiki/Imperative_programming), [programación funcional](https://en.wikipedia.org/wiki/Functional_programming) y [programación procedimental](https://en.wikipedia.org/wiki/Procedural_programming).
 
-R es un proyecto de [software libre](https://en.wikipedia.org/wiki/Free_software) que se comparte mediante una licencia [GNU General Public Licence (GNU GPL)](https://www.gnu.org/licenses/old-licenses/gpl-2.0.html). Esta característica permite que la funcionalidad original de R pueda ser ampliada mediante bilbiotecas o paquetes desarrollados por la comunidad de programadores.
+R es un proyecto de [software libre](https://en.wikipedia.org/wiki/Free_software) que se comparte mediante una licencia [GNU General Public Licence (GNU GPL)](https://www.gnu.org/licenses/old-licenses/gpl-2.0.html). Esta característica permite que la funcionalidad original de R pueda ser ampliada mediante bibliotecas o paquetes desarrollados por la comunidad de programadores.
 
 Para programar en R, puede utilizarse una interfaz de línea de comandos y también ambientes de desarrollo integrados (IDE, _integrated development environment_) como [Jupyter](https://jupyter.org/) o [RStudio](https://rstudio.com/).
 
 ## Funciones, bibliotecas y paquetes
 R, al igual que otros lenguajes de programación, estructura su funcionalidad por medio de segmentos de código llamados funciones. Cada función realiza una tarea específica como, por ejemplo, un cálculo matemático. Todas las funciones tienen un nombre y un conjunto de parámetros que especifican los datos de entrada que procesa la función. Los parámetros se escriben entre paréntesis redondos (```()```) y estos siempre deben incluirse, aún en el caso de que la función no tenga ningún parámetro. Si la función tiene varios parámetros, deben separarse mediante comas (```,```).
 
-Por ejemplo, la función ```print()``` recibe como parámetro un valor (ej. un texto o un número) para imprimirlo en la pantalla.
+Por ejemplo, la función ```print()``` recibe como parámetro un valor (ej. un texto o un número) para imprimirlo en la pantalla. En el siguiente fragmento de código en R, se utiliza ```print()``` para imprimir la hilera ["Hola mundo"](https://en.wikipedia.org/wiki/%22Hello,_World!%22_program). Nótese el uso del símbolo ```#``` para comentarios (i.e. texto que no es código ejecutable).
 
 ```{r}
 # Impresión de una hilera de carácteres
@@ -59,6 +65,13 @@ La función ```setwd()``` (_set working directory_) establece la ruta del direct
 ```{r}
 # Establecer directorio de trabajo (la ruta debe existir)
 # setwd("/home/mfvargas/geogrocesamiento-2020i/lecciones/leccion-04-r")
+```
+
+Los parámetros de las funciones tienen nombres que pueden especificarse en caso de ser necesario. En el siguiente ejemplo, se utilizan los nombres de los parámetros ```xlab``` y ```ylab``` de la función ```plot()``` para especificar las etiquetas de los ejes x e y en un gráfico del conjunto de datos ```cars```.
+
+```{r}
+# Gráfico con etiquetas en los ejes x e y
+plot(x=cars, xlab="Velocidad", ylab="Distancia")
 ```
 
 Para obtener ayuda de una función desde la línea de comandos de R, puede utilizarse un signo de pregunta (```?```) seguido del nombre de la función. Por ejemplo:
@@ -161,9 +174,9 @@ print(c)
 
 Las expresiones booleanas pueden combinarse con operadores como: 
 
-* ```!``` (NO, en inglés _NOT_)
 * ```&&``` (Y, en inglés _AND_)
-* ```&``` (O, en inglés _OR_).
+* ```&``` (O, en inglés _OR_)
+* ```!``` (NO, en inglés _NOT_)
 
 ```{r}
 # Operador lógico AND
@@ -200,25 +213,25 @@ print(b)
 ### Data Frames
 Los _data frames_ son estructuras bidimensionales compuestas por varios vectores, de manera similar a una matriz. Cada vector corresponde una columna de la matriz.
 
-La función ```data.frame()``` puede utilizarse para crear un data frame con dos columnas (x, y), a partir de dos vectores.
+La función ```data.frame()``` puede utilizarse para crear un data frame a partir de vectores que serán las columnas del data frame.
 
 ```{r}
 # Vector de nombres de países
-pais = c("Panamá", "Costa Rica", "Nicaragua", "El Salvador", "Honduras", "Guatemala", "Belice")
+paises = c("PA", "CR", "NI", "ES", "HN", "GU", "BE")
 
 # Vector de cantidades de habitantes (en millones)
-poblacion = c(4.1, 5.0, 6.2, 6.4, 9.2, 16.9, 0.3)
+poblaciones = c(4.1, 5.0, 6.2, 6.4, 9.2, 16.9, 0.3)
 
 # Creación de un data frame a partir de los dos vectores
-d = data.frame(x = pais, y = poblacion)
+ca_poblacion_paises = data.frame(pais = paises, poblacion = poblaciones)
 
-print(d)
+print(ca_poblacion_paises)
 ```
 
 La función ```summary()``` proporciona un resumen de los contenidos de un data frame:
 ```{r}
 # Resumen de los contenidos del data frame
-print(summary(d))
+print(summary(ca_poblacion_paises))
 ```
 
 Para efectos de pruebas y ejemplos, el interpretador de R incorpora varios conjuntos de datos en la forma de data frames que pueden listarse con la función ```data()```. Para consultar un conjunto en particular, puede utilizarse el operador  ```? ``` desde la línea de comandos de R:
@@ -272,7 +285,51 @@ print(indice_movilidad[, c(1, 3, 20, 21)])
 ```
 
 ## Graficación
+Una de las principales fortalezas de R, es su capacidad para generar gráficos estadísticos. A continuación, se detallan algunas de las principales funciones.
 
 ### La función barplot()
+```barplot()``` genera un [gráfico de barras](https://www.data-to-viz.com/graph/barplot.html). Este tipo de gráfico se utiliza para mostrar la relación entre una variable categórica y una variable numérica. Cada valor de la variable categórica se representa mediante una barra y el tamaño de la barra corresponde al valor correspondiente de la variable numérica.
+
+**Ejemplos: población de países centroamericanos**  
+En los siguientes ejemplos, se grafican las cantidades de habitantes de los países centroamericanos. El gráfico resultante se mejora paulatinamente con las opciones que ofrece la función ```barplot()```.
+
+Primero, se repiten los comandos para construir un data frame a partir de dos vectores.
+```{r}
+# Vector de nombres de países
+paises = c("PA", "CR", "NI", "ES", "HN", "GU", "BE")
+
+# Vector de cantidades de habitantes (en millones)
+poblaciones = c(4.1, 5.0, 6.2, 6.4, 9.2, 16.9, 0.3)
+
+# Creación de un data frame a partir de los dos vectores
+ca_poblacion_paises = data.frame(pais = paises, poblacion = poblaciones)
+
+print(ca_poblacion_paises)
+```
+
+Gráfico básico  
+(Note la notación con ```$``` para especificar columnas)
+```{r}
+barplot(height=ca_poblacion_paises$poblacion)
+```
+
+Seguidamente, se ordenan los valores de población con la función ```order()``` y se genera un nuevo data frame.
+```{r}
+# Ordenar de mayor a menor
+poblacion.ordenado <- order(ca_poblacion_paises$poblacion, decreasing=TRUE)
+
+# Nuevo data frame ordenado
+ca_poblacion_paises.poblacion <- ca_poblacion_paises[poblacion.ordenado,]
+```
+
+Gráfico con título y etiquetas
+```{r}
+barplot(height=ca_poblacion_paises.poblacion$poblacion, names.arg=ca_poblacion_paises.poblacion$pais, xlab="País", ylab="Millones de habitantes", main="Población de los países centroamericanos")
+```
+
+Gráfico con barras horizontales
+```{r}
+barplot(height=ca_poblacion_paises.poblacion$poblacion, names.arg=ca_poblacion_paises.poblacion$pais, ylab="País", xlab="Millones de habitantes", main="Población de los países centroamericanos", horiz=TRUE)
+```
 
 ### La función plot()
