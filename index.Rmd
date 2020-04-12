@@ -1,7 +1,7 @@
 ---
 title: "El lenguaje de programación R"
 author: "Manuel Vargas"
-date: "2020-04-09"
+date: "2020-04-12"
 output:
   html_document:
     theme: readable    
@@ -255,7 +255,7 @@ Los datos usados en este ejemplo están basados en los publicados por el [Centro
 
 ```{r}
 # Importación de casos recuperados, fallecidos, activos y confirmados de Covid-19 en los países de Centroamérica
-ca_covid19 <- read.csv(file='datos/ca-covid19.csv')
+ca_covid19 <- read.csv(file='datos/covid19/casos/ca/ca-covid19.csv')
 
 print(ca_covid19)
 ```
