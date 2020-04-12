@@ -286,7 +286,7 @@ print(indice_movilidad[, c(1, 3, 20, 21)])
 ```
 
 ## Graficación
-Una de las principales fortalezas de R, es su capacidad para generar gráficos estadísticos. A continuación, se detallan algunas de las principales funciones.
+Una de las principales fortalezas de R es su capacidad para generar gráficos estadísticos. A continuación, se detallan algunas de las principales funciones de graficación.
 
 ### La función barplot()
 ```barplot()``` genera un [gráfico de barras](https://www.data-to-viz.com/graph/barplot.html). Este tipo de gráfico se utiliza para mostrar la relación entre una variable categórica y una variable numérica. Cada valor de la variable categórica se representa mediante una barra y el tamaño de la barra corresponde al valor correspondiente de la variable numérica.
