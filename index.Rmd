@@ -23,7 +23,7 @@ knitr::opts_chunk$set(echo = TRUE)
 
 ## Descripción general del lenguaje R
 
-[R](https://www.r-project.org/) es un lenguaje de programación enfocado en [análisis estadístico](https://en.wikipedia.org/wiki/Statistics). Es ampliamente utilizado en diversas áreas de investigación, entre las que pueden mencionarse [aprendizaje automático (_machine learning_)](https://en.wikipedia.org/wiki/Machine_learning), [ciencia de datos](https://en.wikipedia.org/wiki/Data_science) y [_big data_](https://en.wikipedia.org/wiki/Big_data), con aplicaciones en campos como biomedicina, bioinformática y finanzas, entre muchos otros. Fue creado por Ross Ihaka y Robert Gentleman en la Universidad de Auckland, Nueva Zelanda, en 1993.
+[R](https://www.r-project.org/) es un lenguaje de programación enfocado en análisis estadístico. Es ampliamente utilizado en diversas áreas de investigación, entre las que pueden mencionarse [aprendizaje automático (_machine learning_)](https://en.wikipedia.org/wiki/Machine_learning), [ciencia de datos](https://en.wikipedia.org/wiki/Data_science) y [_big data_](https://en.wikipedia.org/wiki/Big_data), con aplicaciones en campos como biomedicina, bioinformática y finanzas, entre muchos otros. Fue creado por Ross Ihaka y Robert Gentleman en la Universidad de Auckland, Nueva Zelanda, en 1993.
 
 Algunas de las principales características de este lenguaje son:
 
@@ -67,11 +67,15 @@ La función ```setwd()``` (_set working directory_) establece la ruta del direct
 # setwd("/home/mfvargas/geogrocesamiento-2020i/lecciones/leccion-04-r")
 ```
 
-Los parámetros de las funciones tienen nombres que pueden especificarse en caso de ser necesario. En el siguiente ejemplo, se utilizan los nombres de los parámetros ```xlab``` y ```ylab``` de la función ```plot()``` para especificar las etiquetas de los ejes x e y en un gráfico del conjunto de datos ```cars```.
+Los parámetros de las funciones tienen nombres que pueden especificarse en caso de ser necesario. En el siguiente ejemplo, se utilizan los nombres de los parámetros ```x```, ```xlab``` y ```ylab``` de la función ```plot()``` para especificar la fuente de datos y las etiquetas de los ejes x e y de un gráfico.
 
 ```{r}
 # Gráfico con etiquetas en los ejes x e y
-plot(x=cars, xlab="Velocidad", ylab="Distancia")
+plot(
+  x=cars, 
+  xlab="Velocidad", 
+  ylab="Distancia"
+)
 ```
 
 Para obtener ayuda de una función desde la línea de comandos de R, puede utilizarse un signo de pregunta (```?```) seguido del nombre de la función. Por ejemplo:
@@ -217,13 +221,16 @@ La función ```data.frame()``` puede utilizarse para crear un data frame a parti
 
 ```{r}
 # Vector de nombres de países
-paises = c("PA", "CR", "NI", "ES", "HN", "GU", "BE")
+paises = c("PA", "CR", "NI", "ES", "HN", "GU", "BE", "DO")
 
 # Vector de cantidades de habitantes (en millones)
-poblaciones = c(4.1, 5.0, 6.2, 6.4, 9.2, 16.9, 0.3)
+poblaciones = c(4.1, 5.0, 6.2, 6.4, 9.2, 16.9, 0.3, 10.6)
 
 # Creación de un data frame a partir de los dos vectores
-ca_poblacion_paises = data.frame(pais = paises, poblacion = poblaciones)
+ca_poblacion_paises = data.frame(
+                        pais = paises, 
+                        poblacion = poblaciones
+                      )
 
 print(ca_poblacion_paises)
 ```
@@ -234,37 +241,31 @@ La función ```summary()``` proporciona un resumen de los contenidos de un data 
 print(summary(ca_poblacion_paises))
 ```
 
-Para efectos de pruebas y ejemplos, el interpretador de R incorpora varios conjuntos de datos en la forma de data frames que pueden listarse con la función ```data()```. Para consultar un conjunto en particular, puede utilizarse el operador  ```? ``` desde la línea de comandos de R:
-
-```{r}
-?cars
-```
+**Nota**: para efectos de pruebas y ejemplos, el interpretador de R incorpora varios conjuntos de datos en la forma de data frames que pueden listarse con la función ```data()```. Para consultar un conjunto en particular, puede utilizarse el operador  ```? ``` desde la línea de comandos de R (ej. ```?cars```).
 
 ## Importación de datos
-Por lo general, los datos con los que se trabaja en R provienen de fuentes externas, como archivos, bases de datos o [servicios web](https://en.wikipedia.org/wiki/Web_service). A continuación, se estudiarán funciones que permiten importar datos desde algunas de estas fuentes.
+Por lo general, los datos con los que se trabaja en R provienen de fuentes externas, como archivos, [bases de datos](https://en.wikipedia.org/wiki/Database) o [servicios web](https://en.wikipedia.org/wiki/Web_service). A continuación, se estudiarán funciones que permiten importar datos desde algunas de estas fuentes.
 
 ### La función read.csv()
 La función ```read.csv()``` importa datos desde un archivo de valores separados por comas (CSV, _comma separated values_) y los almacena en un data frame. Como parámetro, recibe la ruta del archivo. Si la ruta no es absoluta, se toma como relativa al directorio actual de trabajo.
 
-```{r}
-# Importación de casos confirmados de Covid-19 en los países de Centroamérica
-ca_covid19_confirmados <- read.csv('datos/ca-covid19-confirmados.csv')
+**Ejemplo: casos de Covid-19 en los países centroamericanos y República Dominicana**  
 
-print(ca_covid19_confirmados)
-```
+Los datos usados en este ejemplo están basados en los publicados por el [Centro de Coordinación para la Prevención de los Desastres en América Central y República Dominicana (Cepredenac)](http://www.cepredenac.org/).
 
 ```{r}
 # Importación de casos recuperados, fallecidos, activos y confirmados de Covid-19 en los países de Centroamérica
-ca_covid19_todos <- read.csv('datos/ca-covid19-todos.csv')
+ca_covid19 <- read.csv(file='datos/ca-covid19.csv')
 
-print(ca_covid19_todos)
+print(ca_covid19)
 ```
 
-Los siguientes ejemplos están basados en el [índice de movilidad de Citymapper](https://citymapper.com/cmi), el cual mide la movilidad en varias ciudades del mundo durante la pandemia de Covid-19.
+**Ejemplo: índice de movilidad durante la pandemia de Covid-19**  
+Los siguientes ejemplos están basados en el [Índice de movilidad de Citymapper](https://citymapper.com/cmi), el cual mide la movilidad en varias ciudades del mundo durante la pandemia de Covid-19.
 
 ```{r}
 # Carga de los datos de todas las ciudades desde un archivo almacenado en la Web
-indice_movilidad <- read.csv('https://raw.githubusercontent.com/geoprocesamiento-2020i/datos/master/covid19/movilidad/citymapper/Citymapper_Mobility_Index.csv')
+indice_movilidad <- read.csv(file='https://raw.githubusercontent.com/geoprocesamiento-2020i/datos/master/covid19/movilidad/citymapper/Citymapper_Mobility_Index.csv')
 ```
 
 ```{r}
@@ -280,7 +281,7 @@ print(indice_movilidad[c(1), c(1, 2, 3, 4, 5, 6)])
 ```
 
 ```{r}
-# Columnas 1 (Date), 3 (Barcelona), 20 (México DF) y 21 (Milán)
+# Todas las filas de las columnas 1 (Date), 3 (Barcelona), 20 (México DF) y 21 (Milán)
 print(indice_movilidad[, c(1, 3, 20, 21)])
 ```
 
@@ -290,19 +291,22 @@ Una de las principales fortalezas de R, es su capacidad para generar gráficos e
 ### La función barplot()
 ```barplot()``` genera un [gráfico de barras](https://www.data-to-viz.com/graph/barplot.html). Este tipo de gráfico se utiliza para mostrar la relación entre una variable categórica y una variable numérica. Cada valor de la variable categórica se representa mediante una barra y el tamaño de la barra corresponde al valor correspondiente de la variable numérica.
 
-**Ejemplos: población de países centroamericanos**  
+**Ejemplo: población de países centroamericanos**  
 En los siguientes ejemplos, se grafican las cantidades de habitantes de los países centroamericanos. El gráfico resultante se mejora paulatinamente con las opciones que ofrece la función ```barplot()```.
 
 Primero, se repiten los comandos para construir un data frame a partir de dos vectores.
 ```{r}
 # Vector de nombres de países
-paises = c("PA", "CR", "NI", "ES", "HN", "GU", "BE")
+paises = c("PA", "CR", "NI", "ES", "HN", "GU", "BE", "DO")
 
 # Vector de cantidades de habitantes (en millones)
-poblaciones = c(4.1, 5.0, 6.2, 6.4, 9.2, 16.9, 0.3)
+poblaciones = c(4.1, 5.0, 6.2, 6.4, 9.2, 16.9, 0.3, 10.6)
 
 # Creación de un data frame a partir de los dos vectores
-ca_poblacion_paises = data.frame(pais = paises, poblacion = poblaciones)
+ca_poblacion_paises = data.frame(
+                        pais = paises, 
+                        poblacion = poblaciones
+                      )
 
 print(ca_poblacion_paises)
 ```
@@ -324,12 +328,54 @@ ca_poblacion_paises.poblacion <- ca_poblacion_paises[poblacion.ordenado,]
 
 Gráfico con título y etiquetas
 ```{r}
-barplot(height=ca_poblacion_paises.poblacion$poblacion, names.arg=ca_poblacion_paises.poblacion$pais, xlab="País", ylab="Millones de habitantes", main="Población de los países centroamericanos")
+barplot(
+  height=ca_poblacion_paises.poblacion$poblacion, 
+  names.arg=ca_poblacion_paises.poblacion$pais, 
+  xlab="País", 
+  ylab="Millones de habitantes", 
+  main="Población de los países centroamericanos y República Dominicana"
+)
 ```
 
 Gráfico con barras horizontales
 ```{r}
-barplot(height=ca_poblacion_paises.poblacion$poblacion, names.arg=ca_poblacion_paises.poblacion$pais, ylab="País", xlab="Millones de habitantes", main="Población de los países centroamericanos", horiz=TRUE)
+barplot(
+  height=ca_poblacion_paises.poblacion$poblacion, 
+  names.arg=ca_poblacion_paises.poblacion$pais, 
+  xlab="Millones de habitantes", 
+  ylab="País",   
+  main="Población de los países centroamericanos y República Dominicana", 
+  horiz=TRUE
+)
+```
+
+**Ejemplo: casos de Covid-19 en los países centroamericanos y República Dominicana**  
+En este caso, el archivo CSV se carga desde la Web en un data frame:
+```{r}
+# Importación de casos recuperados, fallecidos, activos y confirmados de Covid-19 en los países de Centroamérica
+ca_covid19 <- read.csv(file='https://raw.githubusercontent.com/geoprocesamiento-2020i/datos/master/covid19/casos/ca/ca-covid19.csv')
+
+print(ca_covid19)
+```
+
+Ordenamiento según cantidad de casos confirmados
+```{r}
+# Ordenar de mayor a menor
+confirmados.ordenado <- order(ca_covid19$confirmados, decreasing=TRUE)
+
+# Nuevo data frame ordenado
+ca_covid19.confirmados <- ca_covid19[confirmados.ordenado,]
+```
+
+Gráfico de casos confirmados
+```{r}
+barplot(
+  height=ca_covid19.confirmados$confirmados, 
+  names.arg=ca_covid19.confirmados$pais, 
+  xlab="País", 
+  ylab="Casos confirmados", 
+  main="Casos confirmados de Covid-19 en países centroamericanos y DO"
+)
 ```
 
 ### La función plot()
