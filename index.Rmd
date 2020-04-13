@@ -223,7 +223,7 @@ La función ```data.frame()``` puede utilizarse para crear un data frame a parti
 
 ```{r}
 # Vector de nombres de países
-paises = c("PA", "CR", "NI", "ES", "HN", "GU", "BE", "DO")
+paises = c("PAN", "CRI", "NIC", "SLV", "HND", "GTM", "BLZ", "DOM")
 
 # Vector de cantidades de habitantes (en millones)
 poblaciones = c(4.1, 5.0, 6.2, 6.4, 9.2, 16.9, 0.3, 10.6)
@@ -299,7 +299,7 @@ En los siguientes ejemplos, se grafican las cantidades de habitantes de los paí
 Primero, se repiten los comandos para construir un data frame a partir de dos vectores.
 ```{r}
 # Vector de nombres de países
-paises = c("PA", "CR", "NI", "ES", "HN", "GU", "BE", "DO")
+paises = c("PAN", "CRI", "NIC", "SLV", "HND", "GTM", "BLZ", "DOM")
 
 # Vector de cantidades de habitantes (en millones)
 poblaciones = c(4.1, 5.0, 6.2, 6.4, 9.2, 16.9, 0.3, 10.6)
@@ -376,7 +376,7 @@ barplot(
   names.arg=ca_covid19.confirmados$pais, 
   xlab="País", 
   ylab="Casos confirmados", 
-  main="Casos confirmados de Covid-19 en países centroamericanos y DO"
+  main="Casos confirmados de Covid-19 en países centroamericanos y DOM"
 )
 ```
 
