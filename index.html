@@ -1688,15 +1688,15 @@ print(c)</code></pre>
 <pre><code>## [1] FALSE</code></pre>
 <p>Las expresiones booleanas pueden combinarse con operadores como:</p>
 <ul>
-<li><code>&amp;&amp;</code> (Y, en inglés <em>AND</em>)</li>
-<li><code>&amp;</code> (O, en inglés <em>OR</em>)</li>
+<li><code>&amp;</code> (Y, en inglés <em>AND</em>)</li>
+<li><code>|</code> (O, en inglés <em>OR</em>)</li>
 <li><code>!</code> (NO, en inglés <em>NOT</em>)</li>
 </ul>
 <pre class="r"><code># Operador lógico AND
 print((1 &lt; 2) &amp;&amp; (3 &lt; 4))</code></pre>
 <pre><code>## [1] TRUE</code></pre>
 <pre class="r"><code># Operador lógico OR
-print((2 + 2 == 5) &amp; (20 &lt;= 10))</code></pre>
+print((2 + 2 == 5) | (20 &lt;= 10))</code></pre>
 <pre><code>## [1] FALSE</code></pre>
 <pre class="r"><code># Operador lógico NOT
 print(!(2 + 2 == 5))</code></pre>

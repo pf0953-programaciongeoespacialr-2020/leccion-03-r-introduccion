@@ -180,8 +180,8 @@ print(c)
 
 Las expresiones booleanas pueden combinarse con operadores como: 
 
-* ```&&``` (Y, en inglés _AND_)
-* ```&``` (O, en inglés _OR_)
+* ```&``` (Y, en inglés _AND_)
+* ```|``` (O, en inglés _OR_)
 * ```!``` (NO, en inglés _NOT_)
 
 ```{r}
@@ -191,7 +191,7 @@ print((1 < 2) && (3 < 4))
 
 ```{r}
 # Operador lógico OR
-print((2 + 2 == 5) & (20 <= 10))
+print((2 + 2 == 5) | (20 <= 10))
 ```
 
 ```{r}
