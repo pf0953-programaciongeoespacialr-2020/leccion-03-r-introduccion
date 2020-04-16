@@ -283,8 +283,8 @@ print(indice_movilidad[c(1), c(1, 2, 3, 4, 5, 6)])
 ```
 
 ```{r}
-# Todas las filas de las columnas 1 (Date), 3 (Barcelona), 20 (México DF) y 21 (Milán)
-print(indice_movilidad[, c(1, 3, 20, 21)])
+# Todas las filas de las columnas 1 (Date), 3 (Barcelona), 4 (Berlín), 20 (México DF), 21 (Milán) y 32 (Seúl)
+print(indice_movilidad[, c(1, 3, 4, 20, 21, 32)])
 ```
 
 ## Graficación
