@@ -1,5 +1,5 @@
 ---
-title: "El lenguaje de programación R"
+title: "El lenguaje de programación R - Introducción"
 author: "Manuel Vargas"
 date: "2020-04-13"
 output:
@@ -23,7 +23,7 @@ knitr::opts_chunk$set(echo = TRUE)
 * Sitio oficial de RStudio: [RStudio | Open source & professional software for data science teams](https://rstudio.com/)
 * Sitio sobre visualización de datos: [From data to Viz | Find the graphic you need](https://www.data-to-viz.com/)
 
-## Descripción general del lenguaje R
+## Características generales del lenguaje R
 
 [R](https://www.r-project.org/) es un lenguaje de programación enfocado en análisis estadístico. Es ampliamente utilizado en diversas áreas de investigación, entre las que pueden mencionarse [aprendizaje automático (_machine learning_)](https://en.wikipedia.org/wiki/Machine_learning), [ciencia de datos](https://en.wikipedia.org/wiki/Data_science) y [_big data_](https://en.wikipedia.org/wiki/Big_data), con aplicaciones en campos como biomedicina, bioinformática y finanzas, entre muchos otros. Fue creado por Ross Ihaka y Robert Gentleman en la Universidad de Auckland, Nueva Zelanda, en 1993.
 
