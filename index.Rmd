@@ -1,7 +1,7 @@
 ---
 title: "El lenguaje de programación R - Introducción"
 author: "Manuel Vargas"
-date: "2020-04-13"
+date: "2020-08-26"
 output:
   html_document:
     theme: readable    
