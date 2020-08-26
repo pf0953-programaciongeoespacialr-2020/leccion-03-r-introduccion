@@ -16,8 +16,8 @@ knitr::opts_chunk$set(echo = TRUE)
 ```
 
 ## Recursos de interés
-* Sitio del curso: [GF-0604: Procesamiento de datos geográficos](https://geoprocesamiento-2020i.github.io/)
-* Datos utilizados durante el curso: [Datos del curso GF-0604: Procesamiento de datos geográficos](https://github.com/geoprocesamiento-2020i/datos)
+* Sitio del curso: [PF0953 Programación geoespacial en R](https://pf0953-programaciongeoespacialr-2020.github.io/)
+* Datos utilizados durante el curso: [Datos del curso PF0953 Programación geoespacial en R](https://github.com/pf0953-programaciongeoespacialr-2020/datos)
 
 * Sitio oficial de R: [The R Project for Statistical Computing](https://www.r-project.org/)
 * Sitio oficial de RStudio: [RStudio | Open source & professional software for data science teams](https://rstudio.com/)
@@ -64,9 +64,9 @@ getwd()
 
 La función ```setwd()``` (_set working directory_) establece la ruta del directorio de trabajo de la sesión actual de R. Como parámetro, recibe una hilera de texto con la ruta.
 
-```{r}
+```{r eval=FALSE}
 # Establecer directorio de trabajo (la ruta debe existir)
-# setwd("/home/mfvargas/geogrocesamiento-2020i/lecciones/leccion-04-r")
+setwd("/home/mfvargas/")
 ```
 
 Los parámetros de las funciones tienen nombres que pueden especificarse en caso de ser necesario. En el siguiente ejemplo, se utilizan los nombres de los parámetros ```x```, ```xlab``` y ```ylab``` de la función ```plot()``` para especificar la fuente de datos y las etiquetas de los ejes x e y de un gráfico.
@@ -82,7 +82,7 @@ plot(
 
 Para obtener ayuda de una función desde la línea de comandos de R, puede utilizarse un signo de pregunta (```?```) seguido del nombre de la función. Por ejemplo:
 
-```{r}
+```{r eval=FALSE}
 # Ayuda de la función setwd()
 ?setwd
 ```

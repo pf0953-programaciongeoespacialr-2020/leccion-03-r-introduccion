@@ -1538,8 +1538,8 @@ div.tocify {
 <div id="recursos-de-interés" class="section level2">
 <h2>Recursos de interés</h2>
 <ul>
-<li><p>Sitio del curso: <a href="https://geoprocesamiento-2020i.github.io/">GF-0604: Procesamiento de datos geográficos</a></p></li>
-<li><p>Datos utilizados durante el curso: <a href="https://github.com/geoprocesamiento-2020i/datos">Datos del curso GF-0604: Procesamiento de datos geográficos</a></p></li>
+<li><p>Sitio del curso: <a href="https://pf0953-programaciongeoespacialr-2020.github.io/">PF0953 Programación geoespacial en R</a></p></li>
+<li><p>Datos utilizados durante el curso: <a href="https://github.com/pf0953-programaciongeoespacialr-2020/datos">Datos del curso PF0953 Programación geoespacial en R</a></p></li>
 <li><p>Sitio oficial de R: <a href="https://www.r-project.org/">The R Project for Statistical Computing</a></p></li>
 <li><p>Sitio oficial de RStudio: <a href="https://rstudio.com/">RStudio | Open source &amp; professional software for data science teams</a></p></li>
 <li><p>Sitio sobre visualización de datos: <a href="https://www.data-to-viz.com/">From data to Viz | Find the graphic you need</a></p></li>
@@ -1575,7 +1575,7 @@ getwd()</code></pre>
 <pre><code>## [1] &quot;C:/Users/mfvargas/pf0953-programaciongeoespacialr-2020/lecciones/leccion-03-r-introduccion&quot;</code></pre>
 <p>La función <code>setwd()</code> (<em>set working directory</em>) establece la ruta del directorio de trabajo de la sesión actual de R. Como parámetro, recibe una hilera de texto con la ruta.</p>
 <pre class="r"><code># Establecer directorio de trabajo (la ruta debe existir)
-# setwd(&quot;/home/mfvargas/geogrocesamiento-2020i/lecciones/leccion-04-r&quot;)</code></pre>
+setwd(&quot;/home/mfvargas/&quot;)</code></pre>
 <p>Los parámetros de las funciones tienen nombres que pueden especificarse en caso de ser necesario. En el siguiente ejemplo, se utilizan los nombres de los parámetros <code>x</code>, <code>xlab</code> y <code>ylab</code> de la función <code>plot()</code> para especificar la fuente de datos y las etiquetas de los ejes x e y de un gráfico.</p>
 <pre class="r"><code># Gráfico con etiquetas en los ejes x e y
 plot(
@@ -1587,7 +1587,6 @@ plot(
 <p>Para obtener ayuda de una función desde la línea de comandos de R, puede utilizarse un signo de pregunta (<code>?</code>) seguido del nombre de la función. Por ejemplo:</p>
 <pre class="r"><code># Ayuda de la función setwd()
 ?setwd</code></pre>
-<pre><code>## starting httpd help server ... done</code></pre>
 <p>También puede obtenerse ayuda sobre una función en los buscadores de Internet (ej. Google), además de ejemplos y otros materiales de apoyo.</p>
 <p>Las funciones de R se agrupan en conjuntos llamados bibliotecas, las cuales se distribuyen en <a href="https://cran.r-project.org/web/packages/available_packages_by_name.html">paquetes</a>. Para utilizar un paquete, este debe cargarse primero con la función <code>require()</code>.</p>
 <pre class="r"><code># Carga del paquete stats
