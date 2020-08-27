@@ -1,5 +1,5 @@
 ---
-title: "El lenguaje de programación R - Introducción"
+title: "El lenguaje de programación R - introducción, funciones, tipos de datos y variables"
 author: "Manuel Vargas"
 date: "2020-08-26"
 output:
@@ -20,7 +20,10 @@ knitr::opts_chunk$set(echo = TRUE)
 * Datos utilizados durante el curso: [Datos del curso PF0953 Programación geoespacial en R](https://github.com/pf0953-programaciongeoespacialr-2020/datos)
 
 * Sitio oficial de R: [The R Project for Statistical Computing](https://www.r-project.org/)
+* Documentación y manuales de R: [R Documentation and manuals - R Documentation](https://www.rdocumentation.org/)
+
 * Sitio oficial de RStudio: [RStudio | Open source & professional software for data science teams](https://rstudio.com/)
+
 * Sitio sobre visualización de datos: [From data to Viz | Find the graphic you need](https://www.data-to-viz.com/)
 
 ## Características generales del lenguaje R
@@ -41,21 +44,21 @@ Para programar en R, puede utilizarse una interfaz de línea de comandos y tambi
 ## Funciones, bibliotecas y paquetes
 R, al igual que otros lenguajes de programación, estructura su funcionalidad por medio de segmentos de código llamados funciones. Cada función realiza una tarea específica como, por ejemplo, un cálculo matemático. Todas las funciones tienen un nombre y un conjunto de parámetros que especifican los datos de entrada que procesa la función. Los parámetros se escriben entre paréntesis redondos (```()```) y estos siempre deben incluirse, aún en el caso de que la función no tenga ningún parámetro. Si la función tiene varios parámetros, deben separarse mediante comas (```,```).
 
-Por ejemplo, la función ```print()``` recibe como parámetro un valor (ej. un texto o un número) para imprimirlo en la pantalla. En el siguiente fragmento de código en R, se utiliza ```print()``` para imprimir la hilera ["Hola mundo"](https://en.wikipedia.org/wiki/%22Hello,_World!%22_program). Nótese el uso del símbolo ```#``` para comentarios (i.e. texto que no es código ejecutable).
+Por ejemplo, la función [print()](https://www.rdocumentation.org/packages/base/versions/3.6.2/topics/print) recibe como parámetro un valor (ej. un texto o un número) para imprimirlo en la pantalla. En el siguiente fragmento de código en R, se utiliza ```print()``` para imprimir la hilera ["Hola mundo"](https://en.wikipedia.org/wiki/%22Hello,_World!%22_program). Nótese el uso del símbolo ```#``` para comentarios (i.e. texto que no es código ejecutable).
 
 ```{r}
 # Impresión de una hilera de carácteres
 print("Hola mundo")
 ```
 
-La función  ```mean()``` retorna la media aritmética del parámetro de entrada. En el siguiente ejemplo, se calcula la media de los números de un vector creado a su vez con la función ```c()```.
+La función  [mean()](https://www.rdocumentation.org/packages/base/versions/3.6.2/topics/mean) retorna la media aritmética del parámetro de entrada. En el siguiente ejemplo, se calcula la media de los números de un vector creado a su vez con la función [c()](https://www.rdocumentation.org/packages/base/versions/3.6.2/topics/c).
 
 ```{r}
 # Media aritmética
 mean(c(2, 4, 5, 9))
 ```
 
-La función ```getwd()``` (_get working directory_) retorna la ruta del directorio de trabajo de la sesión actual de R. Este es el directorio en el cual R espera encontrar, por ejemplo, archivos de datos.
+La función [getwd()](https://www.rdocumentation.org/packages/base/versions/3.6.2/topics/getwd) (_get working directory_) retorna la ruta del directorio de trabajo de la sesión actual de R. Este es el directorio en el cual R espera encontrar, por ejemplo, archivos de datos.
 
 ```{r}
 # Consultar directorio de trabajo
@@ -69,7 +72,7 @@ La función ```setwd()``` (_set working directory_) establece la ruta del direct
 setwd("/home/mfvargas/")
 ```
 
-Los parámetros de las funciones tienen nombres que pueden especificarse en caso de ser necesario. En el siguiente ejemplo, se utilizan los nombres de los parámetros ```x```, ```xlab``` y ```ylab``` de la función ```plot()``` para especificar la fuente de datos y las etiquetas de los ejes x e y de un gráfico.
+Los parámetros de las funciones tienen nombres que pueden especificarse en caso de ser necesario. En el siguiente ejemplo, se utilizan los nombres de los parámetros ```x```, ```xlab``` y ```ylab``` de la función [plot()](https://www.rdocumentation.org/packages/graphics/versions/3.6.2/topics/plot) para especificar la fuente de datos y las etiquetas de los ejes x e y de un gráfico.
 
 ```{r}
 # Gráfico con etiquetas en los ejes x e y
@@ -87,13 +90,13 @@ Para obtener ayuda de una función desde la línea de comandos de R, puede utili
 ?setwd
 ```
 
-También puede obtenerse ayuda sobre una función en los buscadores de Internet (ej. Google), además de ejemplos y otros materiales de apoyo.
+También puede obtenerse ayuda sobre una función en los buscadores de Internet (ej. Google), además de ejemplos y otros materiales de apoyo. El sitio [R Documentation and manuals - R Documentation](https://www.rdocumentation.org/) reúne documentación, proveniente de varias fuentes, sobre las funciones y paquetes de R.
 
-Las funciones de R se agrupan en conjuntos llamados bibliotecas, las cuales se distribuyen en [paquetes](https://cran.r-project.org/web/packages/available_packages_by_name.html). Para utilizar un paquete, este debe cargarse primero con la función ```require()```.
+Las funciones de R se agrupan en conjuntos llamados bibliotecas, las cuales se distribuyen en [paquetes](https://cran.r-project.org/web/packages/available_packages_by_name.html). Para utilizar un paquete, este debe cargarse primero con la función [library()](https://www.rdocumentation.org/packages/base/versions/3.6.2/topics/library).
 
 ```{r}
 # Carga del paquete stats
-require(stats)
+library(stats)
 ```
 
 ## Tipos de datos, objetos y variables
@@ -116,7 +119,7 @@ dias <- c('Domingo', 'Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sáb
 
 Tanto ```x```, como ```nombre``` como ```dias``` son variables. Una variable es una etiqueta que se le asigna a un valor (o a un objeto). Una variable tiene un nombre que debe comenzar con una letra.
 
-El tipo de una variable (u objeto) puede consultarse con la función ```typeof()```. Por ejemplo:
+El tipo de una variable (u objeto) puede consultarse con la función [typeof()](https://www.rdocumentation.org/packages/base/versions/3.6.2/topics/typeof). Por ejemplo:
 
 ```{r}
 print(typeof(x))
@@ -219,7 +222,7 @@ print(b)
 ### Data Frames
 Los _data frames_ son estructuras bidimensionales compuestas por varios vectores, de manera similar a una matriz. Cada vector corresponde una columna de la matriz.
 
-La función ```data.frame()``` puede utilizarse para crear un data frame a partir de vectores que serán las columnas del data frame.
+La función [data.frame()](https://www.rdocumentation.org/packages/base/versions/3.6.2/topics/data.frame) puede utilizarse para crear un data frame a partir de vectores que serán las columnas del data frame.
 
 ```{r}
 # Vector de nombres de países
@@ -237,7 +240,7 @@ ca_poblacion_paises = data.frame(
 print(ca_poblacion_paises)
 ```
 
-La función ```summary()``` proporciona un resumen de los contenidos de un data frame:
+La función [summary()](https://www.rdocumentation.org/packages/base/versions/3.6.2/topics/summary) proporciona un resumen de los contenidos de un data frame:
 ```{r}
 # Resumen de los contenidos del data frame
 print(summary(ca_poblacion_paises))
@@ -267,7 +270,7 @@ Los siguientes ejemplos están basados en el [Índice de movilidad de Citymapper
 
 ```{r}
 # Carga de los datos de todas las ciudades desde un archivo almacenado en la Web
-indice_movilidad <- read.csv(file='https://raw.githubusercontent.com/geoprocesamiento-2020i/datos/master/covid19/movilidad/citymapper/Citymapper_Mobility_Index.csv')
+indice_movilidad <- read.csv(file='https://raw.githubusercontent.com/pf0953-programaciongeoespacialr-2020/datos/master/covid19/movilidad/citymapper/Citymapper_Mobility_Index.csv')
 ```
 
 ```{r}
@@ -291,7 +294,7 @@ print(indice_movilidad[, c(1, 3, 4, 20, 21, 32)])
 Una de las principales fortalezas de R es su capacidad para generar gráficos estadísticos. A continuación, se detallan algunas de las principales funciones de graficación.
 
 ### La función barplot()
-```barplot()``` genera un [gráfico de barras](https://www.data-to-viz.com/graph/barplot.html). Este tipo de gráfico se utiliza para mostrar la relación entre una variable categórica y una variable numérica. Cada valor de la variable categórica se representa mediante una barra y el tamaño de la barra corresponde al valor correspondiente de la variable numérica.
+[barplot()](https://www.rdocumentation.org/packages/graphics/versions/3.6.2/topics/barplot) genera un [gráfico de barras](https://www.data-to-viz.com/graph/barplot.html). Este tipo de gráfico se utiliza para mostrar la relación entre una variable categórica y una variable numérica. Cada valor de la variable categórica se representa mediante una barra y el tamaño de la barra corresponde al valor correspondiente de la variable numérica.
 
 **Ejemplo: población de países centroamericanos**  
 En los siguientes ejemplos, se grafican las cantidades de habitantes de los países centroamericanos. El gráfico resultante se mejora paulatinamente con las opciones que ofrece la función ```barplot()```.
@@ -355,7 +358,7 @@ barplot(
 En este caso, el archivo CSV se carga desde la Web en un data frame:
 ```{r}
 # Importación de casos recuperados, fallecidos, activos y confirmados de Covid-19 en los países de Centroamérica
-ca_covid19 <- read.csv(file='https://raw.githubusercontent.com/geoprocesamiento-2020i/datos/master/covid19/casos/ca/ca-covid19.csv')
+ca_covid19 <- read.csv(file='https://raw.githubusercontent.com/pf0953-programaciongeoespacialr-2020/datos/master/covid19/casos/ca/ca-covid19.csv')
 
 print(ca_covid19)
 ```
@@ -379,5 +382,3 @@ barplot(
   main="Casos confirmados de Covid-19 en países centroamericanos y DOM"
 )
 ```
-
-### La función plot()
