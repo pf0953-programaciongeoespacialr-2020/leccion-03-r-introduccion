@@ -1542,6 +1542,7 @@ div.tocify {
 <li><p>Sitio del curso: <a href="https://pf0953-programaciongeoespacialr-2020.github.io/">PF0953 Programación geoespacial en R</a></p></li>
 <li><p>Datos utilizados durante el curso: <a href="https://github.com/pf0953-programaciongeoespacialr-2020/datos">Datos del curso PF0953 Programación geoespacial en R</a></p></li>
 <li><p>Sitio oficial de R: <a href="https://www.r-project.org/">The R Project for Statistical Computing</a></p></li>
+<li><p>Definición del lenguaje R: <a href="https://cran.r-project.org/doc/manuals/r-release/R-lang.html">R Language Definition</a></p></li>
 <li><p>Documentación y manuales de R: <a href="https://www.rdocumentation.org/">R Documentation and manuals - R Documentation</a></p></li>
 <li><p>Sitio oficial de RStudio: <a href="https://rstudio.com/">RStudio | Open source &amp; professional software for data science teams</a></p></li>
 <li><p>Sitio sobre visualización de datos: <a href="https://www.data-to-viz.com/">From data to Viz | Find the graphic you need</a></p></li>
@@ -1549,35 +1550,35 @@ div.tocify {
 </div>
 <div id="características-generales-del-lenguaje-r" class="section level2">
 <h2>Características generales del lenguaje R</h2>
-<p><a href="https://www.r-project.org/">R</a> es un lenguaje de programación enfocado en análisis estadístico. Es ampliamente utilizado en diversas áreas de investigación, entre las que pueden mencionarse <a href="https://en.wikipedia.org/wiki/Machine_learning">aprendizaje automático (<em>machine learning</em>)</a>, <a href="https://en.wikipedia.org/wiki/Data_science">ciencia de datos</a> y <a href="https://en.wikipedia.org/wiki/Big_data"><em>big data</em></a>, con aplicaciones en campos como biomedicina, bioinformática y finanzas, entre muchos otros. Fue creado por Ross Ihaka y Robert Gentleman en la Universidad de Auckland, Nueva Zelanda, en 1993.</p>
+<p><a href="https://www.r-project.org/">R</a> es un lenguaje de programación enfocado en análisis estadístico. Es ampliamente utilizado en diversas áreas de investigación, entre las que pueden mencionarse <a href="https://en.wikipedia.org/wiki/Machine_learning">aprendizaje automático (<em>machine learning</em>)</a>, <a href="https://en.wikipedia.org/wiki/Data_science">ciencia de datos (<em>data science</em>)</a> y <a href="https://en.wikipedia.org/wiki/Big_data"><em>big data</em></a>, con aplicaciones en campos como biomedicina, bioinformática y finanzas, entre muchos otros. Fue creado por Ross Ihaka y Robert Gentleman en la Universidad de Auckland, Nueva Zelanda, en 1993.</p>
 <p>Algunas de las principales características de este lenguaje son:</p>
 <ul>
 <li>Es <a href="https://en.wikipedia.org/wiki/Interpreter_(computing)">interpretado</a>: las instrucciones se traducen una por una a <a href="https://en.wikipedia.org/wiki/Machine_code">lenguaje máquina</a>, a diferencia de los <a href="https://en.wikipedia.org/wiki/Compiler">lenguajes compilados</a>, que traducen de manera conjunta las instrucciones de una unidad completa (ej. un programa o una biblioteca). Los lenguajes interpretados tienden a ser más lentos que los compilados, pero también son más flexibles.</li>
 <li>Es <a href="https://en.wikipedia.org/wiki/Cross-platform_software">multiplataforma</a>: puede ejecutarse en los sistemas operativos más populares (ej. Microsoft Windows, macOS, Linux).</li>
 <li>Tiene un <a href="https://pythonconquerstheuniverse.wordpress.com/2009/10/03/static-vs-dynamic-typing-of-programming-languages/">sistema de tipos de datos dinámico</a>: las variables pueden tomar diferentes tipos de datos (ej. textuales, numéricos) durante la ejecución del programa, a diferencia del caso de un sistema de tipos de datos estático, en el que las variables solo pueden tener un tipo de datos.</li>
-<li>Soporta varios <a href="https://en.wikipedia.org/wiki/Programming_paradigm">paradigmas de programación</a>: los paradigmas son estilos o enfoques teóricos de programación. R soporta los paradigmas de <a href="https://en.wikipedia.org/wiki/Object-oriented_programming">programación orientada a objetos</a>, <a href="https://en.wikipedia.org/wiki/Imperative_programming">programación imperativa</a>, <a href="https://en.wikipedia.org/wiki/Functional_programming">programación funcional</a> y <a href="https://en.wikipedia.org/wiki/Procedural_programming">programación procedimental</a>.</li>
+<li>Soporta varios <a href="https://en.wikipedia.org/wiki/Programming_paradigm">paradigmas de programación</a>: los paradigmas son estilos o enfoques teóricos de programación. R soporta los paradigmas de <a href="https://en.wikipedia.org/wiki/Functional_programming">programación funcional</a>, <a href="https://en.wikipedia.org/wiki/Object-oriented_programming">programación orientada a objetos</a>, <a href="https://en.wikipedia.org/wiki/Imperative_programming">programación imperativa</a> y <a href="https://en.wikipedia.org/wiki/Procedural_programming">programación procedimental</a>.</li>
 </ul>
 <p>R es un proyecto de <a href="https://en.wikipedia.org/wiki/Free_software">software libre</a> que se comparte mediante una licencia <a href="https://www.gnu.org/licenses/old-licenses/gpl-2.0.html">GNU General Public Licence (GNU GPL)</a>. Esta característica permite que la funcionalidad original de R pueda ser ampliada mediante bibliotecas o paquetes desarrollados por la comunidad de programadores.</p>
 <p>Para programar en R, puede utilizarse una interfaz de línea de comandos y también ambientes de desarrollo integrados (IDE, <em>integrated development environment</em>) como <a href="https://jupyter.org/">Jupyter</a> o <a href="https://rstudio.com/">RStudio</a>.</p>
 </div>
-<div id="funciones-bibliotecas-y-paquetes" class="section level2">
-<h2>Funciones, bibliotecas y paquetes</h2>
-<p>R, al igual que otros lenguajes de programación, estructura su funcionalidad por medio de segmentos de código llamados funciones. Cada función realiza una tarea específica como, por ejemplo, un cálculo matemático. Todas las funciones tienen un nombre y un conjunto de parámetros que especifican los datos de entrada que procesa la función. Los parámetros se escriben entre paréntesis redondos (<code>()</code>) y estos siempre deben incluirse, aún en el caso de que la función no tenga ningún parámetro. Si la función tiene varios parámetros, deben separarse mediante comas (<code>,</code>).</p>
+<div id="funciones" class="section level2">
+<h2>Funciones</h2>
+<p>R, al igual que otros lenguajes de programación, estructura su funcionalidad en segmentos de <a href="https://en.wikipedia.org/wiki/Source_code">código fuente</a> llamados <a href="https://cran.r-project.org/doc/manuals/r-release/R-lang.html#Functions">funciones</a>. Cada función realiza una tarea específica como, por ejemplo, un cálculo matemático. Todas las funciones tienen un nombre y un conjunto de parámetros que especifican los datos de entrada que procesa la función. Los parámetros se escriben entre paréntesis redondos (<code>()</code>) y estos siempre deben incluirse, aún en el caso de que la función no tenga ningún parámetro. Si la función tiene varios parámetros, deben separarse mediante comas (<code>,</code>).</p>
 <p>Por ejemplo, la función <a href="https://www.rdocumentation.org/packages/base/versions/3.6.2/topics/print">print()</a> recibe como parámetro un valor (ej. un texto o un número) para imprimirlo en la pantalla. En el siguiente fragmento de código en R, se utiliza <code>print()</code> para imprimir la hilera <a href="https://en.wikipedia.org/wiki/%22Hello,_World!%22_program">“Hola mundo”</a>. Nótese el uso del símbolo <code>#</code> para comentarios (i.e. texto que no es código ejecutable).</p>
 <pre class="r"><code># Impresión de una hilera de carácteres
 print(&quot;Hola mundo&quot;)</code></pre>
 <pre><code>## [1] &quot;Hola mundo&quot;</code></pre>
-<p>La función <a href="https://www.rdocumentation.org/packages/base/versions/3.6.2/topics/mean">mean()</a> retorna la media aritmética del parámetro de entrada. En el siguiente ejemplo, se calcula la media de los números de un vector creado a su vez con la función <a href="https://www.rdocumentation.org/packages/base/versions/3.6.2/topics/c">c()</a>.</p>
+<p>En otro ejemplo, la función <a href="https://www.rdocumentation.org/packages/base/versions/3.6.2/topics/mean">mean()</a> retorna la media aritmética del parámetro de entrada. En el siguiente ejemplo, se calcula la media de los números de un vector creado a su vez con la función <a href="https://www.rdocumentation.org/packages/base/versions/3.6.2/topics/c">c()</a>.</p>
 <pre class="r"><code># Media aritmética
 mean(c(2, 4, 5, 9))</code></pre>
 <pre><code>## [1] 5</code></pre>
 <p>La función <a href="https://www.rdocumentation.org/packages/base/versions/3.6.2/topics/getwd">getwd()</a> (<em>get working directory</em>) retorna la ruta del directorio de trabajo de la sesión actual de R. Este es el directorio en el cual R espera encontrar, por ejemplo, archivos de datos.</p>
-<pre class="r"><code># Consultar directorio de trabajo
+<pre class="r"><code># Impresión del directorio de trabajo
 getwd()</code></pre>
 <pre><code>## [1] &quot;C:/Users/mfvargas/pf0953-programaciongeoespacialr-2020/lecciones/leccion-03-r-introduccion-funciones-tipos-variables&quot;</code></pre>
 <p>La función <code>setwd()</code> (<em>set working directory</em>) establece la ruta del directorio de trabajo de la sesión actual de R. Como parámetro, recibe una hilera de texto con la ruta.</p>
-<pre class="r"><code># Establecer directorio de trabajo (la ruta debe existir)
-setwd(&quot;/home/mfvargas/&quot;)</code></pre>
+<pre class="r"><code># Definición del directorio de trabajo (la ruta debe existir)
+setwd(&quot;C:/Users/mfvargas&quot;)</code></pre>
 <p>Los parámetros de las funciones tienen nombres que pueden especificarse en caso de ser necesario. En el siguiente ejemplo, se utilizan los nombres de los parámetros <code>x</code>, <code>xlab</code> y <code>ylab</code> de la función <a href="https://www.rdocumentation.org/packages/graphics/versions/3.6.2/topics/plot">plot()</a> para especificar la fuente de datos y las etiquetas de los ejes x e y de un gráfico.</p>
 <pre class="r"><code># Gráfico con etiquetas en los ejes x e y
 plot(
@@ -1589,18 +1590,22 @@ plot(
 <p>Para obtener ayuda de una función desde la línea de comandos de R, puede utilizarse un signo de pregunta (<code>?</code>) seguido del nombre de la función. Por ejemplo:</p>
 <pre class="r"><code># Ayuda de la función setwd()
 ?setwd</code></pre>
-<p>También puede obtenerse ayuda sobre una función en los buscadores de Internet (ej. Google), además de ejemplos y otros materiales de apoyo. El sitio <a href="https://www.rdocumentation.org/">R Documentation and manuals - R Documentation</a> reúne documentación, proveniente de varias fuentes, sobre las funciones y paquetes de R.</p>
-<p>Las funciones de R se agrupan en conjuntos llamados bibliotecas, las cuales se distribuyen en <a href="https://cran.r-project.org/web/packages/available_packages_by_name.html">paquetes</a>. Para utilizar un paquete, este debe cargarse primero con la función <a href="https://www.rdocumentation.org/packages/base/versions/3.6.2/topics/library">library()</a>.</p>
+<p>También puede obtenerse ayuda sobre una función en los buscadores de Internet (ej. Google), además de ejemplos y otros materiales de apoyo. El sitio <a href="https://www.rdocumentation.org/">R Documentation and manuals - R Documentation</a> reúne la documentación de las funciones de R.</p>
+<p>Las funciones de R se agrupan en conjuntos llamados bibliotecas, las cuales se distribuyen en <a href="https://cran.r-project.org/web/packages/available_packages_by_name.html">paquetes</a>. Para utilizar un paquete, este debe cargarse (en la memoria del computador) primero con la función <a href="https://www.rdocumentation.org/packages/base/versions/3.6.2/topics/library">library()</a>.</p>
 <pre class="r"><code># Carga del paquete stats
 library(stats)</code></pre>
+<p>Algunos paquetes están contenidos en la distribución base de R y otros deben instalarse de manera separada.</p>
 </div>
-<div id="tipos-de-datos-objetos-y-variables" class="section level2">
-<h2>Tipos de datos, objetos y variables</h2>
-<p>R puede trabajar con varios tipos de datos, entre los que están números, carácteres (i.e. textos) y <em>booleanos</em> (o lógicos). También utiliza tipos más complejos, como vectores y matrices.</p>
-<p>Como se mencionó anteriormente, R es un lenguaje de programación orientado a objetos. Un objeto es una entidad que tiene asociadas propiedades y métodos para manipular esas propiedades. Un objeto puede ser, por ejemplo, un número, un texto, un vector o una matriz.</p>
-<p>Hay muchas formas de crear objetos en R. Una de las más sencillas es con los operadores de asignación. Estos son <code>=</code> y <code>&lt;-</code>. Las siguientes sentencias crean un número, un texto y un vector.</p>
+<div id="tipos-de-datos" class="section level2">
+<h2>Tipos de datos</h2>
+<p>R puede trabajar con varios <a href="https://cran.r-project.org/doc/manuals/r-release/R-lang.html#Basic-types">tipos de datos básicos</a>, entre los que están números, carácteres (i.e. textos) y lógicos. También puede trabajar con <a href="https://cran.r-project.org/doc/manuals/r-release/R-lang.html#Special-compound-objects">tipos compuestos</a>, como factores y <em>data frames</em>.</p>
+<p>R proporciona acceso a los datos a través de objetos. Un objeto es una entidad que tiene asociadas propiedades y métodos para manipular esas propiedades. Un objeto puede ser, por ejemplo, un número, una hilera de texto, un vector o una matriz.</p>
+<p>Hay muchas formas de crear objetos en R. Una de las más sencillas es con los operadores de asignación. Estos son <code>=</code> y <code>&lt;-</code> (o <code>-&gt;</code>). Por ejemplo, las siguientes sentencias crean un número, un texto y un vector.</p>
 <pre class="r"><code># Número
 x &lt;- 10
+
+# Otro número
+20 -&gt; y
 
 # Hilera de carácteres
 nombre &lt;- &#39;Manuel&#39;
@@ -1609,100 +1614,259 @@ nombre &lt;- &#39;Manuel&#39;
 dias &lt;- c(&#39;Domingo&#39;, &#39;Lunes&#39;, &#39;Martes&#39;, &#39;Miércoles&#39;, &#39;Jueves&#39;, &#39;Viernes&#39;, &#39;Sábado&#39;)</code></pre>
 <p>Tanto <code>x</code>, como <code>nombre</code> como <code>dias</code> son variables. Una variable es una etiqueta que se le asigna a un valor (o a un objeto). Una variable tiene un nombre que debe comenzar con una letra.</p>
 <p>El tipo de una variable (u objeto) puede consultarse con la función <a href="https://www.rdocumentation.org/packages/base/versions/3.6.2/topics/typeof">typeof()</a>. Por ejemplo:</p>
-<pre class="r"><code>print(typeof(x))</code></pre>
+<pre class="r"><code>typeof(x)</code></pre>
 <pre><code>## [1] &quot;double&quot;</code></pre>
-<pre class="r"><code>print(typeof(nombre))</code></pre>
+<pre class="r"><code>typeof(nombre)</code></pre>
 <pre><code>## [1] &quot;character&quot;</code></pre>
 <p>A continuación, se describen con más detalle algunos de los tipos de datos utilizados en el lenguaje R.</p>
-<div id="números" class="section level3">
-<h3>Números</h3>
-<p>Pueden ser enteros o fracciones. Se utilizan en operaciones aritméticas (ej. suma, resta, multiplicación, división).</p>
+<div id="básicos" class="section level3">
+<h3>Básicos</h3>
+<p>R define <a href="https://cran.r-project.org/doc/manuals/r-release/R-lang.html#Basic-types">seis tipos de datos básicos</a>. En esta sección, se describen los más utilizados durante este curso.</p>
+<div id="números" class="section level4">
+<h4>Números</h4>
+<p>Pueden ser enteros o fracciones (también llamados <em>double</em>). Se utilizan en diversos tipos de operaciones, incluyendo las aritméticas (ej. suma, resta, multiplicación, división).</p>
 <pre class="r"><code># Números enteros
 x &lt;- 10
 y &lt;- 20
 
 # Suma
-print(x + y)</code></pre>
+x + y</code></pre>
 <pre><code>## [1] 30</code></pre>
-<pre class="r"><code># Números decimales
+<pre class="r"><code># Números decimales (double)
 x &lt;- 0.5
 y &lt;- 3.14
 
 # Multiplicación
-print(x * y)</code></pre>
+x * y</code></pre>
 <pre><code>## [1] 1.57</code></pre>
 </div>
-<div id="carácteres" class="section level3">
-<h3>Carácteres</h3>
+<div id="carácteres" class="section level4">
+<h4>Carácteres</h4>
 <p>Se utilizan para representar textos. Deben estar encerrados entre comillas simples <code>&#39;</code>o dobles <code>&quot;</code>.</p>
 <pre class="r"><code># Hileras de carácteres
 nombre &lt;- &quot;María&quot;
 apellido &lt;- &quot;Pérez&quot;
 
-# Concatenación
-print(paste(nombre, apellido))</code></pre>
+# Concatenación mediante la función paste()
+paste(nombre, apellido)</code></pre>
 <pre><code>## [1] &quot;María Pérez&quot;</code></pre>
 </div>
-<div id="booleanos" class="section level3">
-<h3>Booleanos</h3>
-<p>Los objetos <em>booleanos</em> (también llamados lógicos) tienen dos posibles valores: verdadero (<code>TRUE</code>) o falso (<code>FALSE</code>).</p>
-<pre class="r"><code># Variable booleana
-b = 1 &lt; 2
-
-print(b)</code></pre>
+<div id="lógicos" class="section level4">
+<h4>Lógicos</h4>
+<p>Los objetos lógicos (también llamados <em>booleanos</em>) tienen dos posibles valores: verdadero (<code>TRUE</code>) o falso (<code>FALSE</code>).</p>
+<pre class="r"><code># Variable lógica
+a &lt;- 1 &lt; 2
+a</code></pre>
 <pre><code>## [1] TRUE</code></pre>
-<pre class="r"><code># Variable booleana
-c = 1 &gt; 2
-
-print(c)</code></pre>
+<pre class="r"><code># Variable lógica
+b &lt;- 1 &gt; 2
+b</code></pre>
 <pre><code>## [1] FALSE</code></pre>
-<p>Las expresiones booleanas pueden combinarse con operadores como:</p>
+<p>Las expresiones lógicas pueden combinarse con operadores como:</p>
 <ul>
 <li><code>&amp;</code> (Y, en inglés <em>AND</em>)</li>
 <li><code>|</code> (O, en inglés <em>OR</em>)</li>
 <li><code>!</code> (NO, en inglés <em>NOT</em>)</li>
 </ul>
 <pre class="r"><code># Operador lógico AND
-print((1 &lt; 2) &amp; (3 &lt; 4))</code></pre>
+(1 &lt; 2) &amp; (3 &lt; 4)</code></pre>
 <pre><code>## [1] TRUE</code></pre>
 <pre class="r"><code># Operador lógico OR
-print((2 + 2 == 5) | (20 &lt;= 10))</code></pre>
+(2 + 2 == 5) | (20 &lt;= 10)</code></pre>
 <pre><code>## [1] FALSE</code></pre>
 <pre class="r"><code># Operador lógico NOT
-print(!(2 + 2 == 5))</code></pre>
+!(2 + 2 == 5)</code></pre>
 <pre><code>## [1] TRUE</code></pre>
 </div>
-<div id="vectores" class="section level3">
-<h3>Vectores</h3>
-<p>Un vector es una estructura de una dimensión que combina objetos del mismo tipo. Se crean con la función <code>c()</code> (del inglés <em>combine</em>), como en los siguientes ejemplos:</p>
+<div id="vectores" class="section level4">
+<h4>Vectores</h4>
+<p>Un <a href="https://cran.r-project.org/doc/manuals/r-release/R-lang.html#Vector-objects">vector</a> es una estructura unidimensional que combina objetos del mismo tipo.</p>
+<div id="definición" class="section level5">
+<h5>Definición</h5>
+<p>Los vectores pueden definirse de varias formas como, por ejemplo, con la función <a href="https://www.rdocumentation.org/packages/base/versions/3.6.2/topics/c">c()</a> (del inglés <em>combine</em>):</p>
 <pre class="r"><code># Definición de un vector de números
-a = c(1, 2, 3, 4, 5)
-
-print(a)</code></pre>
-<pre><code>## [1] 1 2 3 4 5</code></pre>
+vector_numeros &lt;- c(1, 7, 32, 45, 57)
+vector_numeros</code></pre>
+<pre><code>## [1]  1  7 32 45 57</code></pre>
 <pre class="r"><code># Definición de un vector de hileras de carácteres
-b = c(&quot;Álvaro&quot;, &quot;Ana&quot;, &quot;Berta&quot;, &quot;Bernardo&quot;)
-
-print(b)</code></pre>
+vector_nombres &lt;- c(&quot;Álvaro&quot;, &quot;Ana&quot;, &quot;Berta&quot;, &quot;Bernardo&quot;)
+vector_nombres</code></pre>
 <pre><code>## [1] &quot;Álvaro&quot;   &quot;Ana&quot;      &quot;Berta&quot;    &quot;Bernardo&quot;</code></pre>
+<p>Los vectores también pueden crearse con el operador <code>:</code>, el cual especifica una secuencia:</p>
+<pre class="r"><code># Definición de un vector de números con la secuencia de 1 a 10
+vector_secuencia &lt;- 1:10
+vector_secuencia</code></pre>
+<pre><code>##  [1]  1  2  3  4  5  6  7  8  9 10</code></pre>
+<pre class="r"><code># Definición de un vector de números con la secuencia de -10 a 10
+vector_secuencia &lt;- -10:10
+vector_secuencia</code></pre>
+<pre><code>##  [1] -10  -9  -8  -7  -6  -5  -4  -3  -2  -1   0   1   2   3   4   5   6   7   8
+## [20]   9  10</code></pre>
+<pre class="r"><code># Definición de un vector de números con la secuencia de -0.5 a 3.7
+vector_secuencia &lt;- -0.5:3.7
+vector_secuencia</code></pre>
+<pre><code>## [1] -0.5  0.5  1.5  2.5  3.5</code></pre>
+<p>La función <a href="https://www.rdocumentation.org/packages/base/versions/3.6.2/topics/seq">seq()</a> también crea un vector con base en una secuencia y permite especificar parámetros como un valor de incremento y la longitud de la secuencia.</p>
+<pre class="r"><code># Definición de un vector de números con la secuencia de 1 a 10
+vector_secuencia &lt;- seq(1, 10)
+vector_secuencia</code></pre>
+<pre><code>##  [1]  1  2  3  4  5  6  7  8  9 10</code></pre>
+<pre class="r"><code># Definición de un vector de números con la secuencia de 0.5 a 15.3, con incremento de 2
+vector_secuencia &lt;- seq(from=0.5, to=15.3, by=2)
+vector_secuencia</code></pre>
+<pre><code>## [1]  0.5  2.5  4.5  6.5  8.5 10.5 12.5 14.5</code></pre>
+<pre class="r"><code># Definición de un vector de números con la secuencia de 1.5 a 9.4, con longitud de 4
+vector_secuencia &lt;- seq(from=1.5, to=9.4, length.out=4)
+vector_secuencia</code></pre>
+<pre><code>## [1] 1.500000 4.133333 6.766667 9.400000</code></pre>
 </div>
-<div id="data-frames" class="section level3">
-<h3>Data Frames</h3>
-<p>Los <em>data frames</em> son estructuras bidimensionales compuestas por varios vectores, de manera similar a una matriz. Cada vector corresponde una columna de la matriz.</p>
-<p>La función <a href="https://www.rdocumentation.org/packages/base/versions/3.6.2/topics/data.frame">data.frame()</a> puede utilizarse para crear un data frame a partir de vectores que serán las columnas del data frame.</p>
+<div id="indexación" class="section level5">
+<h5>Indexación</h5>
+<p>Los elementos de un vector se acceden a través de sus <a href="https://cran.r-project.org/doc/manuals/r-release/R-lang.html#Indexing">índices</a> (i.e. posiciones). La primera posición corresponde al índice 1, la segunda al índice 2 y así sucesivamente. Los índices se especifican entre paréntesis cuadrados (<code>[]</code>), ya sea para una posición específica o para un rango de posiciones. También es posible especificar los índices que se desea excluir.</p>
 <pre class="r"><code># Vector de nombres de países
-paises = c(&quot;PAN&quot;, &quot;CRI&quot;, &quot;NIC&quot;, &quot;SLV&quot;, &quot;HND&quot;, &quot;GTM&quot;, &quot;BLZ&quot;, &quot;DOM&quot;)
+paises &lt;- c(&quot;Argentina&quot;, &quot;Francia&quot;, &quot;China&quot;, &quot;Australia&quot;, &quot;México&quot;)
 
-# Vector de cantidades de habitantes (en millones)
-poblaciones = c(4.1, 5.0, 6.2, 6.4, 9.2, 16.9, 0.3, 10.6)
+# Elemento en el índice 3
+paises[3]</code></pre>
+<pre><code>## [1] &quot;China&quot;</code></pre>
+<p>El operador <code>:</code> puede utilizarse para especificar un rango de índices:</p>
+<pre class="r"><code># Elementos entre los índices 2 y 4 (2, 3 y 4)
+paises[2:4]</code></pre>
+<pre><code>## [1] &quot;Francia&quot;   &quot;China&quot;     &quot;Australia&quot;</code></pre>
+<p>Con la función <code>c()</code>, es posible especificar un conjunto de índices específicos:</p>
+<pre class="r"><code># Elementos entre los índices 1, 4 y 5
+paises[c(1, 4, 5)]</code></pre>
+<pre><code>## [1] &quot;Argentina&quot; &quot;Australia&quot; &quot;México&quot;</code></pre>
+<p>Los números negativos pueden usarse para excluir índices:</p>
+<pre class="r"><code># Exclusión de los índices 3 y 4
+paises[c(-3, -4)]</code></pre>
+<pre><code>## [1] &quot;Argentina&quot; &quot;Francia&quot;   &quot;México&quot;</code></pre>
+<p>Los valores lógicos <code>TRUE</code> y <code>FALSE</code> también pueden usarse para incluir y excluir índices de un vector:</p>
+<pre class="r"><code># Se incluyen los índices 1, 2 y 4; y se excluyen los índices 3 y 5
+paises[c(TRUE, TRUE, FALSE, TRUE, FALSE)]</code></pre>
+<pre><code>## [1] &quot;Argentina&quot; &quot;Francia&quot;   &quot;Australia&quot;</code></pre>
+</div>
+<div id="operaciones" class="section level5">
+<h5>Operaciones</h5>
+<p>En los vectores pueden aplicarse operaciones aritméticas:</p>
+<pre class="r"><code>a &lt;- c(1, 3, 5, 7)
+b &lt;- c(2, 4, 6, 8)
+
+# Suma de vectores
+a + b</code></pre>
+<pre><code>## [1]  3  7 11 15</code></pre>
+<pre class="r"><code># Multiplicación de vectores
+a * b</code></pre>
+<pre><code>## [1]  2 12 30 56</code></pre>
+<p>Y también pueden realizarse operaciones relacionales:</p>
+<pre class="r"><code># Comparación con el operador &lt;
+a &lt; b</code></pre>
+<pre><code>## [1] TRUE TRUE TRUE TRUE</code></pre>
+</div>
+</div>
+<div id="matrices" class="section level4">
+<h4>Matrices</h4>
+<p>Una <a href="https://cran.r-project.org/doc/manuals/r-release/R-lang.html#Vector-objects">matriz</a> es una estructura bidimensional de filas y columnas.</p>
+<div id="definición-1" class="section level5">
+<h5>Definición</h5>
+<p>Las matrices se definen mediante la función <a href="https://www.rdocumentation.org/packages/base/versions/3.6.2/topics/matrix">matrix()</a>.</p>
+<pre class="r"><code># Definición de una matriz de 3 x 3 con elementos de la secuencia 1:9 distribuidos en las columnas
+m &lt;- matrix(1:9, nrow=3, ncol=3)
+m</code></pre>
+<pre><code>##      [,1] [,2] [,3]
+## [1,]    1    4    7
+## [2,]    2    5    8
+## [3,]    3    6    9</code></pre>
+<pre class="r"><code># Definición de una matriz de 3 x 3 con elementos de la secuencia 1:9 distribuidos en las filas
+m &lt;- matrix(1:9, nrow=3, ncol=3, byrow=TRUE)
+m</code></pre>
+<pre><code>##      [,1] [,2] [,3]
+## [1,]    1    2    3
+## [2,]    4    5    6
+## [3,]    7    8    9</code></pre>
+<pre class="r"><code># Definición de una matriz de 3 x 2 con nombres para las filas y las columnas
+datos &lt;- c(18, 500, 25, 1000, 30, 2000)
+filas &lt;- c(&quot;Ana&quot;, &quot;Mario&quot;, &quot;Laura&quot;)
+columnas &lt;- c(&quot;Edad&quot;, &quot;Salario&quot;)
+
+m &lt;- matrix(datos, nrow=3, ncol=2, byrow=TRUE, dimnames=list(filas, columnas))
+m</code></pre>
+<pre><code>##       Edad Salario
+## Ana     18     500
+## Mario   25    1000
+## Laura   30    2000</code></pre>
+<p>La función <a href="https://www.rdocumentation.org/packages/base/versions/3.6.2/topics/list">list()</a> se utiliza para combinar vectores. En general, se usa para combinar datos de cualquier tipo.</p>
+</div>
+<div id="indexación-1" class="section level5">
+<h5>Indexación</h5>
+<p>La indexación de matrices es similar a la de vectores, pero deben especificarse índices tanto para filas como para columnas.</p>
+<pre class="r"><code># Elemento en la posición [2,2] (segunda fila, segunda columna)
+m[2, 2]</code></pre>
+<pre><code>## [1] 1000</code></pre>
+<pre class="r"><code># Elementos de la primera fila
+m[1,]</code></pre>
+<pre><code>##    Edad Salario 
+##      18     500</code></pre>
+<pre class="r"><code># Elementos de la segunda columna
+m[, 2]</code></pre>
+<pre><code>##   Ana Mario Laura 
+##   500  1000  2000</code></pre>
+<pre class="r"><code># Elementos de las filas 1 y 2
+m[1:2, ]</code></pre>
+<pre><code>##       Edad Salario
+## Ana     18     500
+## Mario   25    1000</code></pre>
+<pre class="r"><code># Elementos de la fila &quot;Mario&quot;
+m[&quot;Mario&quot;, ]</code></pre>
+<pre><code>##    Edad Salario 
+##      25    1000</code></pre>
+<pre class="r"><code># Elementos de la columna &quot;Salario&quot;
+m[, &quot;Salario&quot;]</code></pre>
+<pre><code>##   Ana Mario Laura 
+##   500  1000  2000</code></pre>
+</div>
+<div id="operaciones-1" class="section level5">
+<h5>Operaciones</h5>
+<p>De manera similar a los vectores, en las matrices pueden realizarse operaciones aritméticas y relacionales.</p>
+<pre class="r"><code>a &lt;- matrix(1:4, nrow=2, ncol=2)
+b &lt;- matrix(5:8, nrow=2, ncol=2)
+
+# Suma de matrices
+a + b</code></pre>
+<pre><code>##      [,1] [,2]
+## [1,]    6   10
+## [2,]    8   12</code></pre>
+<pre class="r"><code># Comparación de matrices con el operador &gt;
+a &gt; b</code></pre>
+<pre><code>##       [,1]  [,2]
+## [1,] FALSE FALSE
+## [2,] FALSE FALSE</code></pre>
+</div>
+</div>
+</div>
+<div id="tipos-compuestos" class="section level3">
+<h3>Tipos compuestos</h3>
+<div id="data-frames" class="section level4">
+<h4>Data Frames</h4>
+<p>Los <em>data frames</em> son estructuras bidimensionales compuestas por varios vectores, de manera similar a una matriz. Por lo general, las filas de la matriz corresponden a <em>observaciones</em> y las columnas a <em>variables</em>. La definición de un data frame puede incluir nombres para cada observación y para cada variable. Los data frames implementan un conjunto de funciones similares a las de una hoja electrónica o la tabla de una base de datos relacional. Son fundamentales para el manejo de datos en R.</p>
+<div id="definición-2" class="section level5">
+<h5>Definición</h5>
+<p>La función <a href="https://www.rdocumentation.org/packages/base/versions/3.6.2/topics/data.frame">data.frame()</a> crea un data frame a partir de vectores que serán las columnas del data frame.</p>
+<pre class="r"><code># Vector de nombres de países
+paises &lt;- c(&quot;PAN&quot;, &quot;CRI&quot;, &quot;NIC&quot;, &quot;SLV&quot;, &quot;HND&quot;, &quot;GTM&quot;, &quot;BLZ&quot;, &quot;DOM&quot;)
+
+# Vector de cantidades de habitantes de cada país (en millones)
+poblaciones &lt;- c(4.1, 5.0, 6.2, 6.4, 9.2, 16.9, 0.3, 10.6)
 
 # Creación de un data frame a partir de los dos vectores
-ca_poblacion_paises = data.frame(
-                        pais = paises, 
-                        poblacion = poblaciones
-                      )
+poblaciones_paises &lt;- 
+  data.frame(
+    pais = paises, 
+    poblacion = poblaciones
+  )
 
-print(ca_poblacion_paises)</code></pre>
+# Impresión del data frame
+poblaciones_paises</code></pre>
 <pre><code>##   pais poblacion
 ## 1  PAN       4.1
 ## 2  CRI       5.0
@@ -1712,9 +1876,16 @@ print(ca_poblacion_paises)</code></pre>
 ## 6  GTM      16.9
 ## 7  BLZ       0.3
 ## 8  DOM      10.6</code></pre>
+</div>
+</div>
+<div id="indexación-2" class="section level4">
+<h4>Indexación</h4>
+</div>
+<div id="funciones-1" class="section level4">
+<h4>Funciones</h4>
 <p>La función <a href="https://www.rdocumentation.org/packages/base/versions/3.6.2/topics/summary">summary()</a> proporciona un resumen de los contenidos de un data frame:</p>
 <pre class="r"><code># Resumen de los contenidos del data frame
-print(summary(ca_poblacion_paises))</code></pre>
+summary(poblaciones_paises)</code></pre>
 <pre><code>##      pais             poblacion     
 ##  Length:8           Min.   : 0.300  
 ##  Class :character   1st Qu.: 4.775  
@@ -1723,6 +1894,7 @@ print(summary(ca_poblacion_paises))</code></pre>
 ##                     3rd Qu.: 9.550  
 ##                     Max.   :16.900</code></pre>
 <p><strong>Nota</strong>: para efectos de pruebas y ejemplos, el interpretador de R incorpora varios conjuntos de datos en la forma de data frames que pueden listarse con la función <code>data()</code>. Para consultar un conjunto en particular, puede utilizarse el operador <code>?</code> desde la línea de comandos de R (ej. <code>?cars</code>).</p>
+</div>
 </div>
 </div>
 
