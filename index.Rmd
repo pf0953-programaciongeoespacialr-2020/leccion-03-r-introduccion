@@ -49,21 +49,21 @@ R, al igual que otros lenguajes de programación, estructura su funcionalidad en
 
 Por ejemplo, la función [print()](https://www.rdocumentation.org/packages/base/versions/3.6.2/topics/print) recibe como parámetro un valor (ej. un texto o un número) para imprimirlo en la pantalla. En el siguiente fragmento de código en R, se utiliza ```print()``` para imprimir la hilera ["Hola mundo"](https://en.wikipedia.org/wiki/%22Hello,_World!%22_program). Nótese el uso del símbolo ```#``` para comentarios (i.e. texto que no es código ejecutable).
 
-```{r}
+```{r collapse=TRUE}
 # Impresión de una hilera de carácteres
 print("Hola mundo")
 ```
 
 En otro ejemplo, la función  [mean()](https://www.rdocumentation.org/packages/base/versions/3.6.2/topics/mean) retorna la media aritmética del parámetro de entrada. En el siguiente ejemplo, se calcula la media de los números de un vector creado a su vez con la función [c()](https://www.rdocumentation.org/packages/base/versions/3.6.2/topics/c).
 
-```{r}
+```{r collapse=TRUE}
 # Media aritmética
 mean(c(2, 4, 5, 9))
 ```
 
 La función [getwd()](https://www.rdocumentation.org/packages/base/versions/3.6.2/topics/getwd) (_get working directory_) retorna la ruta del directorio de trabajo de la sesión actual de R. Este es el directorio en el cual R espera encontrar, por ejemplo, archivos de datos.
 
-```{r}
+```{r collapse=TRUE}
 # Impresión del directorio de trabajo
 getwd()
 ```
@@ -77,8 +77,8 @@ setwd("C:/Users/mfvargas")
 
 Los parámetros de las funciones tienen nombres que pueden especificarse en caso de ser necesario. En el siguiente ejemplo, se utilizan los nombres de los parámetros ```x```, ```xlab``` y ```ylab``` de la función [plot()](https://www.rdocumentation.org/packages/graphics/versions/3.6.2/topics/plot) para especificar la fuente de datos y las etiquetas de los ejes x e y de un gráfico.
 
-```{r}
-# Gráfico con etiquetas en los ejes x e y
+```{r collapse=TRUE}
+# Gráfico con etiquetas en los ejes x e y del conjunto de datos "cars"
 plot(
   x=cars, 
   xlab="Velocidad", 
@@ -102,7 +102,12 @@ Las funciones de R se agrupan en conjuntos llamados bibliotecas, las cuales se d
 library(stats)
 ```
 
-Algunos paquetes están contenidos en la distribución base de R y otros deben instalarse de manera separada.
+Algunos paquetes están contenidos en la distribución base de R y otros deben instalarse de manera separada con la función [install.packages()](https://www.rdocumentation.org/packages/utils/versions/3.6.2/topics/install.packages).
+
+```{r eval=FALSE}
+# Instalación del paquete dplyr
+install.packages("dplyr")
+```
 
 ## Tipos de datos
 R puede trabajar con varios [tipos de datos básicos](https://cran.r-project.org/doc/manuals/r-release/R-lang.html#Basic-types), entre los que están números, carácteres (i.e. textos) y lógicos. También puede trabajar con [tipos compuestos](https://cran.r-project.org/doc/manuals/r-release/R-lang.html#Special-compound-objects), como factores y _data frames_.
@@ -111,30 +116,33 @@ R proporciona acceso a los datos a través de objetos. Un objeto es una entidad 
 
 Hay muchas formas de crear objetos en R. Una de las más sencillas es con los operadores de asignación. Estos son ```=``` y ```<-``` (o ```->```). Por ejemplo, las siguientes sentencias crean un número, un texto y un vector.
 
-```{r}
+```{r collapse=TRUE}
 # Número
 x <- 10
+x
 
 # Otro número
 20 -> y
+y
 
 # Hilera de carácteres
 nombre <- 'Manuel'
+nombre
 
 # Vector de hileras de carácteres
 dias <- c('Domingo', 'Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado')
+dias
 ```
 
 Tanto ```x```, como ```nombre``` como ```dias``` son variables. Una variable es una etiqueta que se le asigna a un valor (o a un objeto). Una variable tiene un nombre que debe comenzar con una letra.
 
 El tipo de una variable (u objeto) puede consultarse con la función [typeof()](https://www.rdocumentation.org/packages/base/versions/3.6.2/topics/typeof). Por ejemplo:
 
-```{r}
+```{r collapse=TRUE}
 typeof(x)
-```
-
-```{r}
+typeof(y)
 typeof(nombre)
+typeof(dias)
 ```
 
 A continuación, se describen con más detalle algunos de los tipos de datos utilizados en el lenguaje R.
@@ -143,30 +151,44 @@ A continuación, se describen con más detalle algunos de los tipos de datos uti
 R define [seis tipos de datos básicos](https://cran.r-project.org/doc/manuals/r-release/R-lang.html#Basic-types). En esta sección, se describen los más utilizados durante este curso.
 
 #### Números
-Pueden ser enteros o fracciones (también llamados _double_). Se utilizan en diversos tipos de operaciones, incluyendo las aritméticas (ej. suma, resta, multiplicación, división).
+Pueden ser enteros (```integer```) o decimales (```double```). Se utilizan en diversos tipos de operaciones, incluyendo las aritméticas (ej. suma, resta, multiplicación, división).
 
-```{r}
-# Números enteros
-x <- 10
-y <- 20
+```{r collapse=TRUE}
+# Declaración de variables numéricas
+x <- 5
+y <- 0.5
 
 # Suma
 x + y
+
+# Tipos de datos numéricos
+typeof(x)
+typeof(y)
+typeof(x + y)
 ```
 
-```{r}
-# Números decimales (double)
-x <- 0.5
-y <- 3.14
+Para declarar números enteros puede usarse el sufijo ```L``` o la función [as.integer()](https://www.rdocumentation.org/packages/base/versions/3.6.2/topics/integer).
+
+```{r collapse=TRUE}
+# Números enteros
+x <- 10L
+y <- as.integer(15)
 
 # Multiplicación
 x * y
+
+# Tipos de datos enteros
+typeof(x)
+typeof(y)
+typeof(x * y)
 ```
+
+Nótese que al declararse una variable numérica, ya sea que tenga o no punto decimal, R la considera por defecto de tipo ```double```. Para que se considere de tipo ```integer```, debe utilizarse el sufijo  ```L ``` o la función  ```integer()```.
 
 #### Carácteres
 Se utilizan para representar textos. Deben estar encerrados entre comillas simples ```'```o dobles ```"```.
 
-```{r}
+```{r collapse=TRUE}
 # Hileras de carácteres
 nombre <- "María"
 apellido <- "Pérez"
@@ -178,13 +200,11 @@ paste(nombre, apellido)
 #### Lógicos
 Los objetos lógicos (también llamados _booleanos_) tienen dos posibles valores: verdadero (```TRUE```) o falso (```FALSE```).
 
-```{r}
+```{r collapse=TRUE}
 # Variable lógica
 a <- 1 < 2
 a
-```
 
-```{r}
 # Variable lógica
 b <- 1 > 2
 b
@@ -196,17 +216,13 @@ Las expresiones lógicas pueden combinarse con operadores como:
 * ```|``` (O, en inglés _OR_)
 * ```!``` (NO, en inglés _NOT_)
 
-```{r}
+```{r collapse=TRUE}
 # Operador lógico AND
 (1 < 2) & (3 < 4)
-```
 
-```{r}
 # Operador lógico OR
 (2 + 2 == 5) | (20 <= 10)
-```
 
-```{r}
 # Operador lógico NOT
 !(2 + 2 == 5)
 ```
@@ -217,13 +233,11 @@ Un [vector](https://cran.r-project.org/doc/manuals/r-release/R-lang.html#Vector-
 ##### Definición
 Los vectores pueden definirse de varias formas como, por ejemplo, con la función [c()](https://www.rdocumentation.org/packages/base/versions/3.6.2/topics/c) (del inglés _combine_):
 
-```{r}
+```{r collapse=TRUE}
 # Definición de un vector de números
 vector_numeros <- c(1, 7, 32, 45, 57)
 vector_numeros
-```
 
-```{r}
 # Definición de un vector de hileras de carácteres
 vector_nombres <- c("Álvaro", "Ana", "Berta", "Bernardo")
 vector_nombres
@@ -231,19 +245,15 @@ vector_nombres
 
 Los vectores también pueden crearse con el operador ```:```, el cual especifica una secuencia:
 
-```{r}
+```{r collapse=TRUE}
 # Definición de un vector de números con la secuencia de 1 a 10
 vector_secuencia <- 1:10
 vector_secuencia
-```
 
-```{r}
-# Definición de un vector de números con la secuencia de -10 a 10
-vector_secuencia <- -10:10
+# Definición de un vector de números con la secuencia de -5 a 5
+vector_secuencia <- -5:5
 vector_secuencia
-```
 
-```{r}
 # Definición de un vector de números con la secuencia de -0.5 a 3.7
 vector_secuencia <- -0.5:3.7
 vector_secuencia
@@ -251,19 +261,15 @@ vector_secuencia
 
 La función [seq()](https://www.rdocumentation.org/packages/base/versions/3.6.2/topics/seq) también crea un vector con base en una secuencia y permite especificar parámetros como un valor de incremento y la longitud de la secuencia.
 
-```{r}
+```{r collapse=TRUE}
 # Definición de un vector de números con la secuencia de 1 a 10
 vector_secuencia <- seq(1, 10)
 vector_secuencia
-```
 
-```{r}
 # Definición de un vector de números con la secuencia de 0.5 a 15.3, con incremento de 2
 vector_secuencia <- seq(from=0.5, to=15.3, by=2)
 vector_secuencia
-```
 
-```{r}
 # Definición de un vector de números con la secuencia de 1.5 a 9.4, con longitud de 4
 vector_secuencia <- seq(from=1.5, to=9.4, length.out=4)
 vector_secuencia
@@ -272,55 +278,54 @@ vector_secuencia
 ##### Indexación
 Los elementos de un vector se acceden a través de sus [índices](https://cran.r-project.org/doc/manuals/r-release/R-lang.html#Indexing) (i.e. posiciones). La primera posición corresponde al índice 1, la segunda al índice 2 y así sucesivamente. Los índices se especifican entre paréntesis cuadrados (```[]```), ya sea para una posición específica o para un rango de posiciones. También es posible especificar los índices que se desea excluir.
 
-```{r}
+```{r collapse=TRUE}
 # Vector de nombres de países
 paises <- c("Argentina", "Francia", "China", "Australia", "México")
+paises
 
 # Elemento en el índice 3
 paises[3]
 ```
 
 El operador ```:``` puede utilizarse para especificar un rango de índices:
-```{r}
+```{r collapse=TRUE}
 # Elementos entre los índices 2 y 4 (2, 3 y 4)
 paises[2:4]
 ```
 
 Con la función ```c()```, es posible especificar un conjunto de índices específicos:
-```{r}
+```{r collapse=TRUE}
 # Elementos entre los índices 1, 4 y 5
 paises[c(1, 4, 5)]
 ```
 
 Los números negativos pueden usarse para excluir índices:
-```{r}
+```{r collapse=TRUE}
 # Exclusión de los índices 3 y 4
 paises[c(-3, -4)]
 ```
 
 Los valores lógicos ```TRUE``` y ```FALSE``` también pueden usarse para incluir y excluir índices de un vector:
-```{r}
+```{r collapse=TRUE}
 # Se incluyen los índices 1, 2 y 4; y se excluyen los índices 3 y 5
 paises[c(TRUE, TRUE, FALSE, TRUE, FALSE)]
 ```
 
 ##### Operaciones
 En los vectores pueden aplicarse operaciones aritméticas:
-```{r}
+```{r collapse=TRUE}
 a <- c(1, 3, 5, 7)
 b <- c(2, 4, 6, 8)
 
 # Suma de vectores
 a + b
-```
 
-```{r}
 # Multiplicación de vectores
 a * b
 ```
 
 Y también pueden realizarse operaciones relacionales:
-```{r}
+```{r collapse=TRUE}
 # Comparación con el operador <
 a < b
 ```
@@ -331,19 +336,15 @@ Una [matriz](https://cran.r-project.org/doc/manuals/r-release/R-lang.html#Vector
 ##### Definición
 Las matrices se definen mediante la función [matrix()](https://www.rdocumentation.org/packages/base/versions/3.6.2/topics/matrix).
 
-```{r}
+```{r collapse=TRUE}
 # Definición de una matriz de 3 x 3 con elementos de la secuencia 1:9 distribuidos en las columnas
 m <- matrix(1:9, nrow=3, ncol=3)
 m
-```
 
-```{r}
 # Definición de una matriz de 3 x 3 con elementos de la secuencia 1:9 distribuidos en las filas
 m <- matrix(1:9, nrow=3, ncol=3, byrow=TRUE)
 m
-```
 
-```{r}
 # Definición de una matriz de 3 x 2 con nombres para las filas y las columnas
 datos <- c(18, 500, 25, 1000, 30, 2000)
 filas <- c("Ana", "Mario", "Laura")
@@ -352,37 +353,27 @@ columnas <- c("Edad", "Salario")
 m <- matrix(datos, nrow=3, ncol=2, byrow=TRUE, dimnames=list(filas, columnas))
 m
 ```
-La función [list()](https://www.rdocumentation.org/packages/base/versions/3.6.2/topics/list) se utiliza para combinar vectores. En general, se usa para combinar datos de cualquier tipo.
+La función [list()](https://www.rdocumentation.org/packages/base/versions/3.6.2/topics/list) se utiliza, en este caso, para combinar vectores. En general, se usa para combinar datos de cualquier tipo.
 
 ##### Indexación
 La indexación de matrices es similar a la de vectores, pero deben especificarse índices tanto para filas como para columnas.
 
-```{r}
+```{r collapse=TRUE}
 # Elemento en la posición [2,2] (segunda fila, segunda columna)
 m[2, 2]
-```
 
-```{r}
 # Elementos de la primera fila
 m[1,]
-```
 
-```{r}
 # Elementos de la segunda columna
 m[, 2]
-```
 
-```{r}
 # Elementos de las filas 1 y 2
 m[1:2, ]
-```
 
-```{r}
 # Elementos de la fila "Mario"
 m["Mario", ]
-```
 
-```{r}
 # Elementos de la columna "Salario"
 m[, "Salario"]
 ```
@@ -390,27 +381,31 @@ m[, "Salario"]
 ##### Operaciones
 De manera similar a los vectores, en las matrices pueden realizarse operaciones aritméticas y relacionales.
 
-```{r}
+```{r collapse=TRUE}
 a <- matrix(1:4, nrow=2, ncol=2)
+a
+
 b <- matrix(5:8, nrow=2, ncol=2)
+b
 
 # Suma de matrices
 a + b
-```
 
-```{r}
+# Multiplicación de matrices
+a * b
+
 # Comparación de matrices con el operador >
 a > b
 ```
 
 ### Tipos compuestos
 #### Data Frames
-Los _data frames_ son estructuras bidimensionales compuestas por varios vectores, de manera similar a una matriz. Por lo general, las filas de la matriz corresponden a *observaciones* y las columnas a *variables*. La definición de un data frame puede incluir nombres para cada observación y para cada variable. Los data frames implementan un conjunto de funciones similares a las de una hoja electrónica o la tabla de una base de datos relacional. Son fundamentales para el manejo de datos en R.
+Los _data frames_ son estructuras bidimensionales compuestas por varios vectores, de manera similar a una matriz. Por lo general, las filas de la matriz corresponden a *observaciones* (o _cases_) y las columnas a *variables*. La definición de un data frame puede incluir nombres para cada observación y para cada variable. Los data frames implementan un conjunto de funciones similares a las de una hoja electrónica o la tabla de una base de datos relacional. Son fundamentales para el manejo de datos en R.
 
 ##### Definición
 La función [data.frame()](https://www.rdocumentation.org/packages/base/versions/3.6.2/topics/data.frame) crea un data frame a partir de vectores que serán las columnas del data frame.
 
-```{r}
+```{r collapse=TRUE}
 # Vector de nombres de países
 paises <- c("PAN", "CRI", "NIC", "SLV", "HND", "GTM", "BLZ", "DOM")
 
@@ -429,14 +424,108 @@ poblaciones_paises
 ```
 
 #### Indexación
+Los datos de un data frame pueden accederse principalmente de dos formas. La primera es mediante la misma sintaxis ```[fila, columna]``` que se utiliza en las matrices.
 
-#### Funciones
+```{r collapse=TRUE}
+# Fila 1
+poblaciones_paises[1, ]
+
+# Filas 1, 5 y 7
+poblaciones_paises[c(1, 5, 7), ]
+
+# Columna 2
+poblaciones_paises[, 2]
+
+# Fila 1, columna 2
+poblaciones_paises[1, 2]
+
+# Filas 1:4, columna 2
+poblaciones_paises[1:4, 2]
+```
+
+Además, mediante el operador ```$```, es posible acceder a las columnas (i.e. variables) del data frame.
+
+```{r collapse=TRUE}
+# Columna de nombres de países
+poblaciones_paises$pais
+
+# Modificación de los valores de toda una columna
+poblaciones_paises$poblacion = poblaciones_paises$poblacion*2
+poblaciones_paises
+```
+
+#### Operaciones
+R proporciona una gran variedad de funciones para manejar data frames. Las siguientes son algunas de las más utilizadas.
+
+La función [read.table()](https://www.rdocumentation.org/packages/utils/versions/3.6.2/topics/read.table) lee los datos contenidos en un archivo de texto y los retorna en un data frame. ```read.csv()``` es una función derivada, con valores por defecto orientados a los archivos de valores separados por comas (CSV, _Comma Separated Values_).
+```{r collapse=TRUE}
+# Lectura de archivo CSV con casos de COVID-19 en Centroamérica
+casos_covid19_ca <- read.csv("https://raw.githubusercontent.com/pf0953-programaciongeoespacialr-2020/datos/master/covid19/casos/ca/2020_09_01_CSV_GENERAL.csv")
+
+# Impresión
+casos_covid19_ca
+```
+
+La función [str()](https://www.rdocumentation.org/packages/utils/versions/3.6.2/topics/str) despliega la estructura de un objeto R.
+```{r collapse=TRUE}
+# Estructura del data frame
+str(poblaciones_paises)
+```
 
 La función [summary()](https://www.rdocumentation.org/packages/base/versions/3.6.2/topics/summary) proporciona un resumen de los contenidos de un data frame:
-```{r}
+```{r collapse=TRUE}
 # Resumen de los contenidos del data frame
 summary(poblaciones_paises)
 ```
 
-**Nota**: para efectos de pruebas y ejemplos, el interpretador de R incorpora varios conjuntos de datos en la forma de data frames que pueden listarse con la función ```data()```. Para consultar un conjunto en particular, puede utilizarse el operador  ```? ``` desde la línea de comandos de R (ej. ```?cars```).
+La función [View()](https://www.rdocumentation.org/packages/utils/versions/3.6.2/topics/View) invoca un visor de datos que permite visualizar un objeto R en un formato de tabla en una hoja de cálculo.
 
+```{r eval=FALSE}
+View(casos_covid19_ca, "Casos de COVID-19 en Centramérica y RD")
+```
+
+### Otros
+#### Fechas
+Las fecha se manejan en R mediante un tipo especial que permite realizar operaciones como diferencias, agrupamientos y otras. Internamente, las fechas en R se almacenan como un número que representa la cantidad de días transcurridos desde el 1 de enero de 1970 (1970-01-01).
+
+##### Operaciones
+La función [Sys.Date()](https://www.rdocumentation.org/packages/base/versions/3.6.2/topics/Sys.time) retorna la fecha actual.
+```{r collapse=TRUE}
+# Fecha actual
+fecha_actual <- Sys.Date()
+fecha_actual
+
+# Tipo de datos
+typeof(fecha_actual)
+
+# Clase
+class(fecha_actual)
+```
+
+La función [as.Date()](https://www.rdocumentation.org/packages/base/versions/3.6.2/topics/as.Date) convierte datos entre los tipos fecha y carácter, de acuerdo con un formato.
+```{r collapse=TRUE}
+# Conversión de fecha en formato año-mes-día
+fecha_caracter_01 <- "2020-01-01"
+fecha_01 <- as.Date(fecha_caracter_01, format="%Y-%m-%d")
+fecha_01
+
+# Conversión de fecha en formato día/mes/año
+fecha_caracter_02 <- "31/01/2020"
+fecha_02 <- as.Date(fecha_caracter_02, format="%d/%m/%Y")
+fecha_02
+
+# Diferencia entre fechas
+fecha_02 - fecha_01
+```
+Hay una lista de formatos de fechas en [Date Formats in R - R-bloggers](https://www.r-bloggers.com/date-formats-in-r/).
+
+## Conjuntos de datos para pruebas
+Para efectos de pruebas y ejemplos, el interpretador de R incorpora varios conjuntos de datos en la forma de data frames que pueden listarse con la función ```data()```. Para consultar un conjunto en particular, puede utilizarse el operador  ```? ```.
+
+```{r eval=FALSE}
+# Información sobre el cojunto de datos "cars"
+?cars
+
+# Información sobre el cojunto de datos "Iris"
+?iris
+```
